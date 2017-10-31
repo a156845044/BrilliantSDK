@@ -1,7 +1,0 @@
-E:\projects\BrilliantSDK\trunk\Brilliant.Utility\bin\Release\Brilliant.Utility.dll
-E:\projects\BrilliantSDK\trunk\Brilliant.Utility\bin\Release\Brilliant.Utility.pdb
-E:\projects\BrilliantSDK\trunk\Brilliant.Utility\obj\Release\Brilliant.Utility.dll
-E:\projects\BrilliantSDK\trunk\Brilliant.Utility\obj\Release\Brilliant.Utility.pdb
-E:\projects\BrilliantSDK\trunk\Brilliant.Utility\obj\Release\Brilliant.Utility.csprojResolveAssemblyReference.cache
-E:\projects\BrilliantSDK\trunk\Brilliant.Utility\bin\Release\Newtonsoft.Json.dll
-E:\projects\BrilliantSDK\trunk\Brilliant.Utility\bin\Release\Newtonsoft.Json.xml
