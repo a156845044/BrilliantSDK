@@ -1,0 +1,11 @@
+E:\projects\myprojects\BrilliantSDK\trunk\Brilliant.Data.Provider.SQLite\bin\Debug\x64\SQLite.Interop.dll
+E:\projects\myprojects\BrilliantSDK\trunk\Brilliant.Data.Provider.SQLite\bin\Debug\x86\SQLite.Interop.dll
+E:\projects\myprojects\BrilliantSDK\trunk\Brilliant.Data.Provider.SQLite\bin\Debug\Brilliant.Data.Provider.SQLite.dll
+E:\projects\myprojects\BrilliantSDK\trunk\Brilliant.Data.Provider.SQLite\bin\Debug\Brilliant.Data.Provider.SQLite.pdb
+E:\projects\myprojects\BrilliantSDK\trunk\Brilliant.Data.Provider.SQLite\bin\Debug\Brilliant.Data.dll
+E:\projects\myprojects\BrilliantSDK\trunk\Brilliant.Data.Provider.SQLite\bin\Debug\System.Data.SQLite.dll
+E:\projects\myprojects\BrilliantSDK\trunk\Brilliant.Data.Provider.SQLite\bin\Debug\Brilliant.Data.pdb
+E:\projects\myprojects\BrilliantSDK\trunk\Brilliant.Data.Provider.SQLite\obj\Debug\Brilliant.Data.Provider.SQLite.csprojResolveAssemblyReference.cache
+E:\projects\myprojects\BrilliantSDK\trunk\Brilliant.Data.Provider.SQLite\obj\Debug\Brilliant.Data.Provider.SQLite.csproj.CoreCompileInputs.cache
+E:\projects\myprojects\BrilliantSDK\trunk\Brilliant.Data.Provider.SQLite\obj\Debug\Brilliant.Data.Provider.SQLite.dll
+E:\projects\myprojects\BrilliantSDK\trunk\Brilliant.Data.Provider.SQLite\obj\Debug\Brilliant.Data.Provider.SQLite.pdb

@@ -1,0 +1,160 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{3889A31C-F770-4CBB-9515-DAD317D43508}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>Brilliant.Web.UI</RootNamespace>
+    <AssemblyName>Brilliant.Web.UI</AssemblyName>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <SccProjectName>Svn</SccProjectName>
+    <SccLocalPath>Svn</SccLocalPath>
+    <SccAuxPath>Svn</SccAuxPath>
+    <SccProvider>SubversionScc</SccProvider>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Web.Extensions" />
+    <Reference Include="System.Web.Extensions.Design" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Common\BaseCollection.cs" />
+    <Compile Include="Common\BasePage.cs">
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Common\Constants.cs" />
+    <Compile Include="Common\ControlBase.cs" />
+    <Compile Include="Common\Event.cs" />
+    <Compile Include="Common\JsonSerializer.cs" />
+    <Compile Include="Common\JsonState.cs" />
+    <Compile Include="Common\ScriptBlock.cs" />
+    <Compile Include="Common\ScriptManager.cs" />
+    <Compile Include="WebControls\Accordion\Accordion.cs" />
+    <Compile Include="WebControls\Accordion\AccordionPanel.cs" />
+    <Compile Include="WebControls\Accordion\AccordionPanelCollection.cs" />
+    <Compile Include="WebControls\Button\Button.cs" />
+    <Compile Include="WebControls\CheckBoxList\CheckBoxList.cs" />
+    <Compile Include="WebControls\CheckBox\CheckBox.cs" />
+    <Compile Include="WebControls\ComboBox\ComboBoxColumn.cs" />
+    <Compile Include="WebControls\ComboBox\ComboBoxColumnCollection.cs" />
+    <Compile Include="WebControls\ComboBox\ComboBox.cs" />
+    <Compile Include="WebControls\Dialog\Dialog.cs" />
+    <Compile Include="WebControls\Form\Form.cs" />
+    <Compile Include="WebControls\Grid\Grid.cs" />
+    <Compile Include="WebControls\Layout\Layout.cs" />
+    <Compile Include="WebControls\Layout\LayoutPanel.cs" />
+    <Compile Include="WebControls\Layout\LayoutPanelCollection.cs" />
+    <Compile Include="WebControls\Layout\LayoutPosition.cs" />
+    <Compile Include="WebControls\Panel\Panel.cs" />
+    <Compile Include="WebControls\Tab\Tab.cs" />
+    <Compile Include="WebControls\Tab\TabItem.cs" />
+    <Compile Include="WebControls\Tab\TabPanel.cs" />
+    <Compile Include="WebControls\Tab\TabPanelCollection.cs" />
+    <Compile Include="WebControls\Tree\Tree.cs" />
+    <Compile Include="WebControls\Tree\TreeNode.cs" />
+    <Compile Include="WebControls\Tree\TreeNodeCollection.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="WebControls\Window\Window.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Resource\Accordion.bmp" />
+    <EmbeddedResource Include="Resource\Button.bmp" />
+    <EmbeddedResource Include="Resource\Calendar.bmp" />
+    <EmbeddedResource Include="Resource\CheckBox.bmp" />
+    <EmbeddedResource Include="Resource\CheckBoxList.bmp" />
+    <EmbeddedResource Include="Resource\ContentPanel.bmp" />
+    <EmbeddedResource Include="Resource\DataList.bmp" />
+    <EmbeddedResource Include="Resource\DatePicker.bmp" />
+    <EmbeddedResource Include="Resource\DropDownList.bmp" />
+    <EmbeddedResource Include="Resource\FileUpload.bmp" />
+    <EmbeddedResource Include="Resource\Form.bmp" />
+    <EmbeddedResource Include="Resource\Grid.bmp" />
+    <EmbeddedResource Include="Resource\GroupPanel.bmp" />
+    <EmbeddedResource Include="Resource\HiddenField.bmp" />
+    <EmbeddedResource Include="Resource\HtmlEditor.bmp" />
+    <EmbeddedResource Include="Resource\HyperLink.bmp" />
+    <EmbeddedResource Include="Resource\Image.bmp" />
+    <EmbeddedResource Include="Resource\ImageButton.bmp" />
+    <EmbeddedResource Include="Resource\Label.bmp" />
+    <EmbeddedResource Include="Resource\LinkButton.bmp" />
+    <EmbeddedResource Include="Resource\ListBox.bmp" />
+    <EmbeddedResource Include="Resource\Literal.bmp" />
+    <EmbeddedResource Include="Resource\Menu.bmp" />
+    <EmbeddedResource Include="Resource\MenuButton.bmp" />
+    <EmbeddedResource Include="Resource\MenuCheckBox.bmp" />
+    <EmbeddedResource Include="Resource\MenuHyperLink.bmp" />
+    <EmbeddedResource Include="Resource\MenuSeparator.bmp" />
+    <EmbeddedResource Include="Resource\MenuText.bmp" />
+    <EmbeddedResource Include="Resource\NumberBox.bmp" />
+    <EmbeddedResource Include="Resource\PageLoading.bmp" />
+    <EmbeddedResource Include="Resource\PageManager.bmp" />
+    <EmbeddedResource Include="Resource\Panel.bmp" />
+    <EmbeddedResource Include="Resource\PlaceHolder.bmp" />
+    <EmbeddedResource Include="Resource\RadioButton.bmp" />
+    <EmbeddedResource Include="Resource\RadioButtonList.bmp" />
+    <EmbeddedResource Include="Resource\RegionPanel.bmp" />
+    <EmbeddedResource Include="Resource\SimpleForm.bmp" />
+    <EmbeddedResource Include="Resource\SplitButton.bmp" />
+    <EmbeddedResource Include="Resource\Table.bmp" />
+    <EmbeddedResource Include="Resource\TabStrip.bmp" />
+    <EmbeddedResource Include="Resource\TextArea.bmp" />
+    <EmbeddedResource Include="Resource\TextBox.bmp" />
+    <EmbeddedResource Include="Resource\TimePicker.bmp" />
+    <EmbeddedResource Include="Resource\Toolbar.bmp" />
+    <EmbeddedResource Include="Resource\ToolbarFill.bmp" />
+    <EmbeddedResource Include="Resource\ToolbarSeparator.bmp" />
+    <EmbeddedResource Include="Resource\ToolbarText.bmp" />
+    <EmbeddedResource Include="Resource\Tree.bmp" />
+    <EmbeddedResource Include="Resource\TriggerBox.bmp" />
+    <EmbeddedResource Include="Resource\TwinTriggerBox.bmp" />
+    <EmbeddedResource Include="Resource\UserControlConnector.bmp" />
+    <EmbeddedResource Include="Resource\View.bmp" />
+    <EmbeddedResource Include="Resource\Window.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="WebControls\ListBox\" />
+    <Folder Include="WebControls\RadioList\" />
+    <Folder Include="WebControls\Radio\" />
+    <Folder Include="WebControls\TextBox\" />
+    <Folder Include="WebControls\Tip\" />
+    <Folder Include="WebControls\ToolBar\" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

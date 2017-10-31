@@ -1,0 +1,11 @@
+E:\projects\BrilliantSDK\trunk\Brilliant.Data\bin\Debug\Brilliant.Data.dll
+E:\projects\BrilliantSDK\trunk\Brilliant.Data\bin\Debug\Brilliant.Data.pdb
+E:\projects\BrilliantSDK\trunk\Brilliant.Data\obj\Debug\Brilliant.Data.dll
+E:\projects\BrilliantSDK\trunk\Brilliant.Data\obj\Debug\Brilliant.Data.pdb
+E:\projects\BrilliantSDK\trunk\Brilliant.Data\obj\Debug\Brilliant.Data.csprojResolveAssemblyReference.cache
+E:\projects\myprojects\BrilliantSDK\trunk\Brilliant.Data\bin\Debug\Brilliant.Data.dll
+E:\projects\myprojects\BrilliantSDK\trunk\Brilliant.Data\bin\Debug\Brilliant.Data.pdb
+E:\projects\myprojects\BrilliantSDK\trunk\Brilliant.Data\obj\Debug\Brilliant.Data.csproj.CoreCompileInputs.cache
+E:\projects\myprojects\BrilliantSDK\trunk\Brilliant.Data\obj\Debug\Brilliant.Data.dll
+E:\projects\myprojects\BrilliantSDK\trunk\Brilliant.Data\obj\Debug\Brilliant.Data.pdb
+E:\projects\myprojects\BrilliantSDK\trunk\Brilliant.Data\obj\Debug\Brilliant.Data.csprojResolveAssemblyReference.cache

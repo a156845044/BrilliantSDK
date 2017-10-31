@@ -1,0 +1,17 @@
+E:\projects\myprojects\BrilliantSDK\trunk\WXDemo\bin\Debug\WXDemo.exe.config
+E:\projects\myprojects\BrilliantSDK\trunk\WXDemo\bin\Debug\WXDemo.exe
+E:\projects\myprojects\BrilliantSDK\trunk\WXDemo\bin\Debug\WXDemo.pdb
+E:\projects\myprojects\BrilliantSDK\trunk\WXDemo\bin\Debug\Brilliant.Service.WX.dll
+E:\projects\myprojects\BrilliantSDK\trunk\WXDemo\bin\Debug\Brilliant.Utility.dll
+E:\projects\myprojects\BrilliantSDK\trunk\WXDemo\bin\Debug\Newtonsoft.Json.dll
+E:\projects\myprojects\BrilliantSDK\trunk\WXDemo\bin\Debug\Brilliant.Service.WX.pdb
+E:\projects\myprojects\BrilliantSDK\trunk\WXDemo\bin\Debug\Brilliant.Utility.pdb
+E:\projects\myprojects\BrilliantSDK\trunk\WXDemo\bin\Debug\Brilliant.Utility.xml
+E:\projects\myprojects\BrilliantSDK\trunk\WXDemo\bin\Debug\Newtonsoft.Json.xml
+E:\projects\myprojects\BrilliantSDK\trunk\WXDemo\obj\Debug\WXDemo.csprojResolveAssemblyReference.cache
+E:\projects\myprojects\BrilliantSDK\trunk\WXDemo\obj\Debug\WXDemo.FrmMain.resources
+E:\projects\myprojects\BrilliantSDK\trunk\WXDemo\obj\Debug\WXDemo.Properties.Resources.resources
+E:\projects\myprojects\BrilliantSDK\trunk\WXDemo\obj\Debug\WXDemo.csproj.GenerateResource.Cache
+E:\projects\myprojects\BrilliantSDK\trunk\WXDemo\obj\Debug\WXDemo.csproj.CoreCompileInputs.cache
+E:\projects\myprojects\BrilliantSDK\trunk\WXDemo\obj\Debug\WXDemo.exe
+E:\projects\myprojects\BrilliantSDK\trunk\WXDemo\obj\Debug\WXDemo.pdb

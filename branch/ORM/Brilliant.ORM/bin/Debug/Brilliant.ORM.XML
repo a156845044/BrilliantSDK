@@ -1,0 +1,1632 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>Brilliant.ORM</name>
+    </assembly>
+    <members>
+        <member name="T:Brilliant.ORM.ConnectionInfo">
+            <summary>
+            连接信息
+            </summary>
+        </member>
+        <member name="P:Brilliant.ORM.ConnectionInfo.DataSource">
+            <summary>
+            数据源
+            </summary>
+        </member>
+        <member name="P:Brilliant.ORM.ConnectionInfo.DataBase">
+            <summary>
+            数据库
+            </summary>
+        </member>
+        <member name="P:Brilliant.ORM.ConnectionInfo.Uid">
+            <summary>
+            用户名
+            </summary>
+        </member>
+        <member name="P:Brilliant.ORM.ConnectionInfo.Pwd">
+            <summary>
+            密码
+            </summary>
+        </member>
+        <member name="P:Brilliant.ORM.ConnectionInfo.ConnectionStringFormat">
+            <summary>
+            连接字符串格式
+            </summary>
+        </member>
+        <member name="P:Brilliant.ORM.ConnectionInfo.ConnectionString">
+            <summary>
+            连接字符串
+            </summary>
+        </member>
+        <member name="P:Brilliant.ORM.ConnectionInfo.ProviderName">
+            <summary>
+            数据库访问对象类型
+            </summary>
+        </member>
+        <member name="P:Brilliant.ORM.ConnectionInfo.DataProvider">
+            <summary>
+            数据库访问对象
+            </summary>
+        </member>
+        <member name="T:Brilliant.ORM.TransDelegate">
+            <summary>
+            事务方法委托
+            </summary>
+        </member>
+        <member name="T:Brilliant.ORM.TransExecuteDelegate">
+            <summary>
+            事务执行委托
+            </summary>
+            <param name="sql">执行参数</param>
+            <returns>执行结果</returns>
+        </member>
+        <member name="T:Brilliant.ORM.DataProviderBase">
+            <summary>
+            DataProvider基类
+            </summary>
+        </member>
+        <member name="E:Brilliant.ORM.DataProviderBase.TransExecute">
+            <summary>
+            事务执行事件
+            </summary>
+        </member>
+        <member name="P:Brilliant.ORM.DataProviderBase.ConnectionString">
+            <summary>
+            获取连接字符串
+            </summary>
+        </member>
+        <member name="P:Brilliant.ORM.DataProviderBase.DataPagedType">
+            <summary>
+            获取当前分页类型
+            </summary>
+        </member>
+        <member name="M:Brilliant.ORM.DataProviderBase.#ctor">
+            <summary>
+            构造器
+            </summary>
+        </member>
+        <member name="M:Brilliant.ORM.DataProviderBase.#ctor(System.String)">
+            <summary>
+            构造器
+            </summary>
+            <param name="connectionString">连接字符串</param>
+        </member>
+        <member name="M:Brilliant.ORM.DataProviderBase.ChangeConnectionString(Brilliant.ORM.ConnectionInfo,System.Boolean)">
+            <summary>
+            变更连接字符串
+            </summary>
+            <param name="connInfo">连接信息</param>
+            <param name="formated">是否启用格式</param>
+            <exception cref="T:System.Exception">formated为true时，连接字符串格式为空，则引发异常。</exception>
+        </member>
+        <member name="M:Brilliant.ORM.DataProviderBase.CheckConnection(Brilliant.ORM.ConnectionInfo)">
+            <summary>
+            检测连接是否可用
+            </summary>
+            <param name="connInfo">连接信息</param>
+            <returns>true:可用 false:不可用</returns>
+        </member>
+        <member name="M:Brilliant.ORM.DataProviderBase.GetCommand(System.Data.Common.DbConnection,Brilliant.ORM.SQL)">
+            <summary>
+            返回Command对象
+            </summary>
+        </member>
+        <member name="M:Brilliant.ORM.DataProviderBase.BeginTransaction">
+            <summary>
+            开启事务
+            </summary>
+        </member>
+        <member name="M:Brilliant.ORM.DataProviderBase.Commit">
+            <summary>
+            提交事务
+            </summary>
+        </member>
+        <member name="M:Brilliant.ORM.DataProviderBase.Rollback">
+            <summary>
+            回滚事务
+            </summary>
+        </member>
+        <member name="M:Brilliant.ORM.DataProviderBase.Close">
+            <summary>
+            关闭事务连接
+            </summary>
+        </member>
+        <member name="M:Brilliant.ORM.DataProviderBase.ExecDataSet(Brilliant.ORM.SQL)">
+            <summary>
+            执行查询指令返回DataSet对象
+            </summary>
+            <param name="sql">查询指令</param>
+            <returns>DataSet对象</returns>
+        </member>
+        <member name="M:Brilliant.ORM.DataProviderBase.ExecDataReader(Brilliant.ORM.SQL)">
+            <summary>
+            执行查询指令返回DataReader对象
+            </summary>
+            <param name="sql">查询指令</param>
+            <returns>DataReader对象</returns>
+        </member>
+        <member name="M:Brilliant.ORM.DataProviderBase.ExecScalar(Brilliant.ORM.SQL)">
+            <summary>
+            执行查询指令返回第一行第一列的值
+            </summary>
+            <param name="sql">查询指令</param>
+            <returns>第一行第一列的值</returns>
+        </member>
+        <member name="M:Brilliant.ORM.DataProviderBase.ExecNonQuerry(Brilliant.ORM.SQL)">
+            <summary>
+            执行查询指令返回受影响行数
+            </summary>
+            <param name="sql">查询指令</param>
+            <returns>受影响行数</returns>
+        </member>
+        <member name="M:Brilliant.ORM.DataProviderBase.ExecNonQuerry(System.Collections.Generic.List{Brilliant.ORM.SQL})">
+            <summary>
+            执行查询指令列表返回受影响行数
+            </summary>
+            <param name="sqlList">查询指令列表</param>
+            <returns>受影响行数</returns>
+        </member>
+        <member name="M:Brilliant.ORM.DataProviderBase.ExecTrans(System.Collections.Generic.List{Brilliant.ORM.SQL})">
+            <summary>
+            批量执行查询指令返回受影响行数(事务)
+            </summary>
+            <param name="sqlList">查询指令列表</param>
+            <returns>受影响行数</returns>
+        </member>
+        <member name="M:Brilliant.ORM.DataProviderBase.ExecSQL(Brilliant.ORM.SQL)">
+            <summary>
+            执行SQL
+            </summary>
+            <param name="sql">SQL对象</param>
+            <returns>受影响行数</returns>
+        </member>
+        <member name="M:Brilliant.ORM.DataProviderBase.GetConnection">
+            <summary>
+            返回一个新的Connection实例
+            </summary>
+            <returns>Connection实例</returns>
+        </member>
+        <member name="M:Brilliant.ORM.DataProviderBase.GetCommand">
+            <summary>
+            返回一个新的Command实例
+            </summary>
+            <returns>Command实例</returns>
+        </member>
+        <member name="M:Brilliant.ORM.DataProviderBase.GetDataAdapter">
+            <summary>
+            返回一个新的DataAdapter实例
+            </summary>
+            <returns>DataAdapter实例</returns>
+        </member>
+        <member name="M:Brilliant.ORM.DataProviderBase.GetParameter">
+            <summary>
+            返回一个新的IDbDataParameter实例
+            </summary>
+            <returns>IDbDataParameter实例</returns>
+        </member>
+        <member name="M:Brilliant.ORM.DataProviderBase.GetDataProvider">
+            <summary>
+            返回一个新的IDataProvider实例
+            </summary>
+            <returns>IDataProvider实例</returns>
+        </member>
+        <member name="T:Brilliant.ORM.DataProviderBase.Transaction">
+            <summary>
+            事务操作对象
+            </summary>
+        </member>
+        <member name="T:Brilliant.ORM.DBHelper">
+            <summary>
+            DBProvider一个静态实例
+            </summary>
+        </member>
+        <member name="P:Brilliant.ORM.DBHelper.CurrentConnection">
+            <summary>
+            当前连接
+            </summary>
+        </member>
+        <member name="P:Brilliant.ORM.DBHelper.DataProvider">
+            <summary>
+            数据访问对象实例
+            </summary>
+        </member>
+        <member name="P:Brilliant.ORM.DBHelper.DataPagedType">
+            <summary>
+            数据库分页方式
+            </summary>
+        </member>
+        <member name="M:Brilliant.ORM.DBHelper.GetParameter">
+            <summary>
+            返回一个新的DataParameter对象实例
+            </summary>
+            <returns>DataParameter对象实例</returns>
+        </member>
+        <member name="M:Brilliant.ORM.DBHelper.#ctor">
+            <summary>
+            构造器
+            </summary>
+        </member>
+        <member name="M:Brilliant.ORM.DBHelper.BeginTransaction">
+            <summary>
+            开始事务
+            </summary>
+        </member>
+        <member name="M:Brilliant.ORM.DBHelper.Commit">
+            <summary>
+            提交事务
+            </summary>
+        </member>
+        <member name="M:Brilliant.ORM.DBHelper.Rollback">
+            <summary>
+            回滚事务
+            </summary>
+        </member>
+        <member name="M:Brilliant.ORM.DBHelper.Transaction(Brilliant.ORM.TransDelegate)">
+            <summary>
+            执行事务操作
+            </summary>
+            <param name="handler">需要调用事务方法的句柄</param>
+            <returns>执行结果</returns>
+        </member>
+        <member name="M:Brilliant.ORM.DBHelper.CreateInstance">
+            <summary>
+            返回一个新的DBHelper对象实例
+            </summary>
+            <returns>DBHelper对象实例</returns>
+        </member>
+        <member name="M:Brilliant.ORM.DBHelper.GetDataProvider">
+            <summary>
+            返回一个新的DataProvider对象实例
+            </summary>
+            <returns>DataProvider对象实例</returns>
+        </member>
+        <member name="M:Brilliant.ORM.DBHelper.Connect(Brilliant.ORM.ConnectionInfo)">
+            <summary>
+            连接到服务器
+            </summary>
+            <param name="connInfo">连接信息</param>
+            <returns>true:连接成功 false:连接失败</returns>
+        </member>
+        <member name="M:Brilliant.ORM.DBHelper.Disconnect(System.String)">
+            <summary>
+            断开连接
+            </summary>
+            <param name="dataSource">数据源</param>
+        </member>
+        <member name="M:Brilliant.ORM.DBHelper.ChangeDataSource(System.String)">
+            <summary>
+            变更数据源
+            </summary>
+            <param name="dataSource">数据源</param>
+        </member>
+        <member name="M:Brilliant.ORM.DBHelper.ChangeDataBase(System.String)">
+            <summary>
+            变更数据库
+            </summary>
+            <param name="dataBase">数据库</param>
+        </member>
+        <member name="M:Brilliant.ORM.DBHelper.ChangeSection(System.String)">
+            <summary>
+            变更连接字符串节点
+            </summary>
+            <param name="sectionName">节点名称</param>
+        </member>
+        <member name="M:Brilliant.ORM.DBHelper.CreateProvider(System.String)">
+            <summary>
+            创建Provider对象
+            </summary>
+            <param name="providerName">provider名称</param>
+            <returns>Provider对象</returns>
+        </member>
+        <member name="M:Brilliant.ORM.DBHelper.AddConnection(System.String)">
+            <summary>
+            添加连接
+            </summary>
+            <param name="sectionName">节点名称</param>
+        </member>
+        <member name="M:Brilliant.ORM.DBHelper.AddConnection(Brilliant.ORM.ConnectionInfo)">
+            <summary>
+            添加连接
+            </summary>
+            <param name="connInfo">连接字符串</param>
+            <returns>true:添加成功 false:添加失败</returns>
+        </member>
+        <member name="T:Brilliant.ORM.PagedType">
+            <summary>
+            分页类型枚举
+            </summary>
+        </member>
+        <member name="F:Brilliant.ORM.PagedType.Common">
+            <summary>
+            通用数据库分页
+            </summary>
+        </member>
+        <member name="F:Brilliant.ORM.PagedType.RowId">
+            <summary>
+            用于Oracle数据库分页
+            </summary>
+        </member>
+        <member name="F:Brilliant.ORM.PagedType.RowNumber">
+            <summary>
+            用于SQL Server2005以上数据库分页
+            </summary>
+        </member>
+        <member name="F:Brilliant.ORM.PagedType.Limit">
+            <summary>
+            用于MySql以及SQLite数据库分页
+            </summary>
+        </member>
+        <member name="T:Brilliant.ORM.TableAttribute">
+            <summary>
+            将某个类指定为与数据库表相关联的实体类
+            </summary>
+        </member>
+        <member name="P:Brilliant.ORM.TableAttribute.Name">
+            <summary>
+            表名称
+            </summary>
+        </member>
+        <member name="M:Brilliant.ORM.TableAttribute.#ctor">
+            <summary>
+            构造函数
+            </summary>
+        </member>
+        <member name="T:Brilliant.ORM.ColumnAttribute">
+            <summary>
+            将类与数据库表中的列相关联
+            </summary>
+        </member>
+        <member name="M:Brilliant.ORM.ColumnAttribute.#ctor">
+            <summary>
+            构造器
+            </summary>
+        </member>
+        <member name="P:Brilliant.ORM.ColumnAttribute.Name">
+            <summary>
+            获取或设置列名称
+            </summary>
+        </member>
+        <member name="P:Brilliant.ORM.ColumnAttribute.AutoSync">
+            <summary>
+            获取或设置 AutoSync 枚举
+            </summary>
+        </member>
+        <member name="P:Brilliant.ORM.ColumnAttribute.CanBeNull">
+            <summary>
+            获取或设置一个值，该值指示列是否可包含 null 值
+            </summary>
+        </member>
+        <member name="P:Brilliant.ORM.ColumnAttribute.DbType">
+            <summary>
+            获取或设置数据库列的类型
+            </summary>
+        </member>
+        <member name="P:Brilliant.ORM.ColumnAttribute.Expression">
+            <summary>
+            获取或设置一个值，该值指示列是否为数据库中的计算列
+            </summary>
+        </member>
+        <member name="P:Brilliant.ORM.ColumnAttribute.IsDbGenerated">
+            <summary>
+            获取或设置一个值，该值指示列是否包含数据库自动生成的值
+            </summary>
+        </member>
+        <member name="P:Brilliant.ORM.ColumnAttribute.IsPrimaryKey">
+            <summary>
+            获取或设置一个值，该值指示该类成员是否表示作为表的整个主键或部分主键的列
+            </summary>
+        </member>
+        <member name="T:Brilliant.ORM.AutoSync">
+            <summary>
+            指示运行时如何在执行插入或更新操作后检索值
+            </summary>
+        </member>
+        <member name="F:Brilliant.ORM.AutoSync.Default">
+            <summary>
+            自动选择值
+            </summary>
+        </member>
+        <member name="F:Brilliant.ORM.AutoSync.Always">
+            <summary>
+            始终返回值
+            </summary>
+        </member>
+        <member name="F:Brilliant.ORM.AutoSync.Never">
+            <summary>
+            从不返回值
+            </summary>
+        </member>
+        <member name="F:Brilliant.ORM.AutoSync.OnInsert">
+            <summary>
+            仅在执行插入操作后返回值
+            </summary>
+        </member>
+        <member name="F:Brilliant.ORM.AutoSync.OnUpdate">
+            <summary>
+            仅在执行更新操作后返回值
+            </summary>
+        </member>
+        <member name="T:Brilliant.ORM.EntityBase">
+            <summary>
+            实体基类
+            </summary>
+        </member>
+        <member name="M:Brilliant.ORM.EntityBase.#ctor">
+            <summary>
+            默认构造函数
+            </summary>
+        </member>
+        <member name="M:Brilliant.ORM.EntityBase.#ctor(Brilliant.ORM.EntityBase)">
+            <summary>
+            构造函数
+            </summary>
+            <param name="fkObject">外键关联对象</param>
+        </member>
+        <member name="M:Brilliant.ORM.EntityBase.SetProperty(System.String,System.Object)">
+            <summary>
+            设置属性的值
+            </summary>
+            <param name="propertyName">属性名</param>
+            <param name="value">属性值</param>
+            <remarks>
+                新增原始键数据的保存。
+                在序列化对象属性时，可以输出为原始键。
+            </remarks>
+        </member>
+        <member name="M:Brilliant.ORM.EntityBase.GetProperty``1(System.String)">
+            <summary>
+            获取属性的值
+            </summary>
+            <typeparam name="T">用以指明属性类型</typeparam>
+            <param name="propertyName">属性名</param>
+            <returns>属性的值</returns>
+        </member>
+        <member name="P:Brilliant.ORM.EntityBase.Item(System.String)">
+            <summary>
+            属性索引器
+            </summary>
+            <param name="propertyName">属性名称</param>
+            <returns>属性值</returns>
+        </member>
+        <member name="M:Brilliant.ORM.EntityBase.GetAllProperties">
+            <summary>
+            获取实体所有属性列表
+            </summary>
+            <returns>所有属性列表</returns>
+            <remarks>时间：2014-09-05 类型：新增</remarks>
+        </member>
+        <member name="T:Brilliant.ORM.EntityQuery`1">
+            <summary>
+            实体查询
+            </summary>
+            <typeparam name="T">实体类型</typeparam>
+        </member>
+        <member name="P:Brilliant.ORM.EntityQuery`1.ElementType">
+            <summary>
+            获取TEntity的类型
+            </summary>
+        </member>
+        <member name="P:Brilliant.ORM.EntityQuery`1.Expression">
+            <summary>
+            获取当前执行的Expression
+            </summary>
+        </member>
+        <member name="P:Brilliant.ORM.EntityQuery`1.Provider">
+            <summary>
+            获取QueryProvider对象
+            </summary>
+        </member>
+        <member name="M:Brilliant.ORM.EntityQuery`1.#ctor">
+            <summary>
+            构造函数
+            </summary>
+        </member>
+        <member name="M:Brilliant.ORM.EntityQuery`1.#ctor(System.Linq.Expressions.Expression,System.Linq.IQueryProvider)">
+            <summary>
+            构造函数
+            </summary>
+            <param name="expression">表达式树</param>
+            <param name="provider">QueryProvider对象</param>
+        </member>
+        <member name="M:Brilliant.ORM.EntityQuery`1.GetEnumerator">
+            <summary>
+            返回一个循环访问集合的枚举器
+            </summary>
+            <returns>枚举器</returns>
+        </member>
+        <member name="M:Brilliant.ORM.EntityQuery`1.System#Collections#IEnumerable#GetEnumerator">
+            <summary>
+            返回一个循环访问集合的枚举器
+            </summary>
+            <returns>枚举器</returns>
+        </member>
+        <member name="M:Brilliant.ORM.EntityQuery`1.ToString">
+            <summary>
+            返回表达式解析后的SQL语句
+            </summary>
+            <returns>SQL语句</returns>
+        </member>
+        <member name="T:Brilliant.ORM.EntityQueryProvider`1">
+            <summary>
+            实体查询Provider
+            </summary>
+            <typeparam name="T">类型</typeparam>
+        </member>
+        <member name="M:Brilliant.ORM.EntityQueryProvider`1.Parse(System.Linq.Expressions.Expression,Brilliant.ORM.SqlBuilder)">
+            <summary>
+            解析表达式
+            </summary>
+        </member>
+        <member name="M:Brilliant.ORM.EntityQueryProvider`1.CreateQuery``1(System.Linq.Expressions.Expression)">
+            <summary>
+            创建查询对象
+            </summary>
+            <typeparam name="TElement">元素类型</typeparam>
+            <param name="expression">表达式树</param>
+            <returns>查询对象</returns>
+        </member>
+        <member name="M:Brilliant.ORM.EntityQueryProvider`1.CreateQuery(System.Linq.Expressions.Expression)">
+            <summary>
+            创建查询对象
+            </summary>
+            <param name="expression">表达式树</param>
+            <returns>查询对象</returns>
+        </member>
+        <member name="M:Brilliant.ORM.EntityQueryProvider`1.Execute``1(System.Linq.Expressions.Expression)">
+            <summary>
+            执行表达式树
+            </summary>
+            <typeparam name="TResult">执行结果</typeparam>
+            <param name="expression">表达式树</param>
+            <returns>执行结果</returns>
+        </member>
+        <member name="M:Brilliant.ORM.EntityQueryProvider`1.Execute(System.Linq.Expressions.Expression)">
+            <summary>
+            执行表达式树
+            </summary>
+            <param name="expression">执行结果</param>
+            <returns>执行结果</returns>
+        </member>
+        <member name="M:Brilliant.ORM.EntityQueryProvider`1.ToString">
+            <summary>
+            将表达式树解析结果序列化字符串
+            </summary>
+            <returns>解析结果</returns>
+        </member>
+        <member name="T:Brilliant.ORM.DescriptionAttribute">
+            <summary>
+            枚举描述特性
+            </summary>
+        </member>
+        <member name="P:Brilliant.ORM.DescriptionAttribute.Description">
+            <summary>
+            描述信息
+            </summary>
+        </member>
+        <member name="M:Brilliant.ORM.DescriptionAttribute.#ctor(System.String)">
+            <summary>
+            构造器
+            </summary>
+            <param name="description">描述信息</param>
+        </member>
+        <member name="T:Brilliant.ORM.Enum`1">
+            <summary>
+            枚举特性操作
+            </summary>
+            <typeparam name="T">枚举类型</typeparam>
+        </member>
+        <member name="M:Brilliant.ORM.Enum`1.GetDesc(`0)">
+            <summary>
+            获取描述信息
+            </summary>
+            <param name="value">枚举项</param>
+            <returns>描述信息</returns>
+        </member>
+        <member name="M:Brilliant.ORM.Enum`1.ToList">
+            <summary>
+            将枚举转换为List集合
+            </summary>
+            <returns>List集合</returns>
+        </member>
+        <member name="T:Brilliant.ORM.EnumItem">
+            <summary>
+            枚举列表项
+            </summary>
+        </member>
+        <member name="P:Brilliant.ORM.EnumItem.Text">
+            <summary>
+            显示文本
+            </summary>
+        </member>
+        <member name="P:Brilliant.ORM.EnumItem.Value">
+            <summary>
+            显示文本对应的值
+            </summary>
+        </member>
+        <member name="T:Brilliant.ORM.ExtensionMethod">
+            <summary>
+            扩展方法
+            </summary>
+        </member>
+        <member name="M:Brilliant.ORM.ExtensionMethod.GetProperty(System.Web.UI.IDataItemContainer,System.String)">
+            <summary>
+            获取当前容器中实体的属性值
+            </summary>
+            <param name="container">扩展类</param>
+            <param name="propertyName">属性名称</param>
+            <returns>属性值</returns>
+        </member>
+        <member name="M:Brilliant.ORM.ExtensionMethod.GetProperty``1(System.Web.UI.IDataItemContainer,System.String)">
+            <summary>
+            获取当前容器中实体的属性值
+            </summary>
+            <typeparam name="T">值类型</typeparam>
+            <param name="container">扩展类</param>
+            <param name="propertyName">属性名称</param>
+            <returns>属性值</returns>
+        </member>
+        <member name="M:Brilliant.ORM.ExtensionMethod.GetInt(System.Web.UI.IDataItemContainer,System.String)">
+            <summary>
+            获取当前容器中实体的属性值
+            </summary>
+            <param name="container">扩展类</param>
+            <param name="propertyName">属性名称</param>
+            <returns>属性值</returns>
+        </member>
+        <member name="M:Brilliant.ORM.ExtensionMethod.GetBool(System.Web.UI.IDataItemContainer,System.String)">
+            <summary>
+            获取当前容器中实体的属性值
+            </summary>
+            <param name="container">扩展类</param>
+            <param name="propertyName">属性名称</param>
+            <returns>属性值</returns>
+        </member>
+        <member name="M:Brilliant.ORM.ExtensionMethod.GetString(System.Web.UI.IDataItemContainer,System.String)">
+            <summary>
+            获取当前容器中实体的属性值
+            </summary>
+            <param name="container">扩展类</param>
+            <param name="propertyName">属性名称</param>
+            <returns>属性值</returns>
+        </member>
+        <member name="M:Brilliant.ORM.ExtensionMethod.GetString(System.Web.UI.IDataItemContainer,System.String,System.String)">
+            <summary>
+            获取当前容器中实体的属性值
+            </summary>
+            <param name="container">扩展类</param>
+            <param name="propertyName">属性名称</param>
+            <param name="format">要对结果应用的格式字符串</param>
+            <returns>属性值</returns>
+        </member>
+        <member name="T:Brilliant.ORM.IDataProvider">
+            <summary>
+            数据访问对象接口
+            </summary>
+        </member>
+        <member name="P:Brilliant.ORM.IDataProvider.ConnectionString">
+            <summary>
+            连接字符串
+            </summary>
+        </member>
+        <member name="P:Brilliant.ORM.IDataProvider.DataPagedType">
+            <summary>
+            数据库分页类型
+            </summary>
+        </member>
+        <member name="M:Brilliant.ORM.IDataProvider.ChangeConnectionString(Brilliant.ORM.ConnectionInfo,System.Boolean)">
+            <summary>
+            变更连接字符串
+            </summary>
+            <param name="connInfo">连接信息</param>
+            <param name="formated">是否启用格式</param>
+            <exception cref="T:System.Exception">formated为true时，连接字符串格式为空，则引发异常。</exception>
+        </member>
+        <member name="M:Brilliant.ORM.IDataProvider.CheckConnection(Brilliant.ORM.ConnectionInfo)">
+            <summary>
+            检测连接是否可用
+            </summary>
+            <param name="connInfo">连接信息</param>
+            <returns>true:可用 false:不可用</returns>
+        </member>
+        <member name="M:Brilliant.ORM.IDataProvider.BeginTransaction">
+            <summary>
+            开始事务
+            </summary>
+        </member>
+        <member name="M:Brilliant.ORM.IDataProvider.Commit">
+            <summary>
+            提交事务
+            </summary>
+        </member>
+        <member name="M:Brilliant.ORM.IDataProvider.Rollback">
+            <summary>
+            回滚事务
+            </summary>
+        </member>
+        <member name="M:Brilliant.ORM.IDataProvider.ExecDataSet(Brilliant.ORM.SQL)">
+            <summary>
+            执行查询指令返回DataSet对象
+            </summary>
+            <param name="sql">查询指令</param>
+            <returns>DataSet对象</returns>
+        </member>
+        <member name="M:Brilliant.ORM.IDataProvider.ExecDataReader(Brilliant.ORM.SQL)">
+            <summary>
+            执行查询指令返回DataReader对象
+            </summary>
+            <param name="sql">查询指令</param>
+            <returns>DataReader对象</returns>
+        </member>
+        <member name="M:Brilliant.ORM.IDataProvider.ExecScalar(Brilliant.ORM.SQL)">
+            <summary>
+            执行查询指令返回第一行第一列的值
+            </summary>
+            <param name="sql">查询指令</param>
+            <returns>第一行第一列的值</returns>
+        </member>
+        <member name="M:Brilliant.ORM.IDataProvider.ExecNonQuerry(Brilliant.ORM.SQL)">
+            <summary>
+            执行查询指令返回受影响行数
+            </summary>
+            <param name="sql">查询指令</param>
+            <returns>受影响行数</returns>
+        </member>
+        <member name="M:Brilliant.ORM.IDataProvider.ExecNonQuerry(System.Collections.Generic.List{Brilliant.ORM.SQL})">
+            <summary>
+            批量执行查询指令返回受影响行数(事务)
+            </summary>
+            <param name="sqlList">查询指令列表</param>
+            <returns>受影响行数</returns>
+        </member>
+        <member name="M:Brilliant.ORM.IDataProvider.GetParameter">
+            <summary>
+            返回一个新的DataParameter对象实例
+            </summary>
+            <returns>DataParameter实例</returns>
+        </member>
+        <member name="M:Brilliant.ORM.IDataProvider.GetDataProvider">
+            <summary>
+            返回一个新的IDataProvider实例
+            </summary>
+            <returns>DataProvider实例</returns>
+        </member>
+        <member name="T:Brilliant.ORM.JsonSerializer">
+            <summary>
+            Json数据序列化/反序列化
+            </summary>
+        </member>
+        <member name="M:Brilliant.ORM.JsonSerializer.Serialize(System.Object)">
+            <summary>
+            将对象/对象集合转换成Json数据
+            </summary>
+            <param name="obj">对象</param>
+            <returns>Json数据</returns>
+        </member>
+        <member name="M:Brilliant.ORM.JsonSerializer.DeSerialize``1(System.String)">
+            <summary>
+            将Json数据转换成对象/对象集合
+            </summary>
+            <typeparam name="T">对象类型</typeparam>
+            <param name="json">Json数据</param>
+            <returns>对象/对象集合</returns>
+        </member>
+        <member name="M:Brilliant.ORM.JsonSerializer.JSSerialize(System.Object)">
+            <summary>
+            将对象/对象集合转换成Json数据（JavaScriptSerializer）
+            </summary>
+            <param name="obj">对象</param>
+            <returns>Json数据</returns>
+        </member>
+        <member name="M:Brilliant.ORM.JsonSerializer.JSDeSerialize``1(System.String)">
+            <summary>
+            将Json数据转换成对象/对象集合（JavaScriptSerializer）
+            </summary>
+            <typeparam name="T">对象类型</typeparam>
+            <param name="json">Json数据</param>
+            <returns>对象/对象集合</returns>
+        </member>
+        <member name="T:Brilliant.ORM.Log">
+            <summary>
+            日志
+            </summary>
+        </member>
+        <member name="P:Brilliant.ORM.Log.Enable">
+            <summary>
+            是否启用
+            </summary>
+        </member>
+        <member name="P:Brilliant.ORM.Log.Instance">
+            <summary>
+            单例
+            </summary>
+        </member>
+        <member name="M:Brilliant.ORM.Log.#ctor">
+            <summary>
+            构造器
+            </summary>
+        </member>
+        <member name="M:Brilliant.ORM.Log.Add(System.String)">
+            <summary>
+            添加日志信息
+            </summary>
+            <param name="message">日志信息</param>
+        </member>
+        <member name="M:Brilliant.ORM.Log.Add(System.String,Brilliant.ORM.SQL)">
+            <summary>
+            添加日志信息
+            </summary>
+            <param name="message">日志信息</param>
+            <param name="sql">SQL对象</param>
+        </member>
+        <member name="M:Brilliant.ORM.Log.Add(Brilliant.ORM.LogType,System.String)">
+            <summary>
+            添加日志信息
+            </summary>
+            <param name="type">类型</param>
+            <param name="message">信息</param>
+        </member>
+        <member name="M:Brilliant.ORM.Log.Add(Brilliant.ORM.LogType,System.String,Brilliant.ORM.SQL)">
+            <summary>
+            添加日志信息
+            </summary>
+            <param name="type">类型</param>
+            <param name="message">日志信息</param>
+            <param name="sql">SQL对象</param>
+        </member>
+        <member name="M:Brilliant.ORM.Log.Add(Brilliant.ORM.LogLevel,Brilliant.ORM.LogType,System.String)">
+            <summary>
+            添加日志信息
+            </summary>
+            <param name="level">级别</param>
+            <param name="type">类型</param>
+            <param name="message">信息</param>
+        </member>
+        <member name="M:Brilliant.ORM.Log.Add(Brilliant.ORM.LogLevel,Brilliant.ORM.LogType,System.String,Brilliant.ORM.SQL)">
+            <summary>
+            添加日志信息
+            </summary>
+            <param name="level">级别</param>
+            <param name="type">类型</param>
+            <param name="message">信息</param>
+            <param name="sql">SQL对象</param>
+        </member>
+        <member name="M:Brilliant.ORM.Log.WriteLogAsync(Brilliant.ORM.LogInfo)">
+            <summary>
+            异步写入日志文件
+            </summary>
+            <param name="log">Log对象</param>
+        </member>
+        <member name="M:Brilliant.ORM.Log.GetLogTypes">
+            <summary>
+            获取日志类型列表
+            </summary>
+            <returns>日志类型列表</returns>
+        </member>
+        <member name="M:Brilliant.ORM.Log.GetLogLevels">
+            <summary>
+            获取日志级别列表
+            </summary>
+            <returns>日志级别列表</returns>
+        </member>
+        <member name="T:Brilliant.ORM.LogInfo">
+            <summary>
+            日志信息
+            </summary>
+        </member>
+        <member name="M:Brilliant.ORM.LogInfo.#ctor">
+            <summary>
+            构造器
+            </summary>
+        </member>
+        <member name="P:Brilliant.ORM.LogInfo.Date">
+            <summary>
+            日期
+            </summary>
+        </member>
+        <member name="P:Brilliant.ORM.LogInfo.LogLevel">
+            <summary>
+            级别
+            </summary>
+        </member>
+        <member name="P:Brilliant.ORM.LogInfo.LogType">
+            <summary>
+            类型
+            </summary>
+        </member>
+        <member name="P:Brilliant.ORM.LogInfo.Message">
+            <summary>
+            消息
+            </summary>
+        </member>
+        <member name="P:Brilliant.ORM.LogInfo.CmdText">
+            <summary>
+            查询指令
+            </summary>
+        </member>
+        <member name="P:Brilliant.ORM.LogInfo.Parameters">
+            <summary>
+            查询参数列表
+            </summary>
+        </member>
+        <member name="T:Brilliant.ORM.LogCmdParam">
+            <summary>
+            SQL日志参数
+            </summary>
+        </member>
+        <member name="P:Brilliant.ORM.LogCmdParam.ParameterName">
+            <summary>
+            参数名称
+            </summary>
+        </member>
+        <member name="P:Brilliant.ORM.LogCmdParam.Size">
+            <summary>
+            大小
+            </summary>
+        </member>
+        <member name="P:Brilliant.ORM.LogCmdParam.Value">
+            <summary>
+            值
+            </summary>
+        </member>
+        <member name="P:Brilliant.ORM.LogCmdParam.DbType">
+            <summary>
+            类型
+            </summary>
+        </member>
+        <member name="T:Brilliant.ORM.LogLevel">
+            <summary>
+            日志信息等级
+            </summary>
+        </member>
+        <member name="F:Brilliant.ORM.LogLevel.All">
+            <summary>
+            全部信息（用于筛选）
+            </summary>
+        </member>
+        <member name="F:Brilliant.ORM.LogLevel.Normal">
+            <summary>
+            正常信息
+            </summary>
+        </member>
+        <member name="F:Brilliant.ORM.LogLevel.Exception">
+            <summary>
+            异常信息
+            </summary>
+        </member>
+        <member name="F:Brilliant.ORM.LogLevel.Warning">
+            <summary>
+            警告信息
+            </summary>
+        </member>
+        <member name="F:Brilliant.ORM.LogLevel.Error">
+            <summary>
+            错误信息
+            </summary>
+        </member>
+        <member name="T:Brilliant.ORM.LogType">
+            <summary>
+            日志类型
+            </summary>
+        </member>
+        <member name="F:Brilliant.ORM.LogType.All">
+            <summary>
+            显示全部（用于筛选）
+            </summary>
+        </member>
+        <member name="F:Brilliant.ORM.LogType.Common">
+            <summary>
+            一般类型
+            </summary>
+        </member>
+        <member name="F:Brilliant.ORM.LogType.Parse">
+            <summary>
+            SQL解析
+            </summary>
+        </member>
+        <member name="F:Brilliant.ORM.LogType.Execute">
+            <summary>
+            SQL执行
+            </summary>
+        </member>
+        <member name="F:Brilliant.ORM.LogType.Map">
+            <summary>
+            对象映射
+            </summary>
+        </member>
+        <member name="T:Brilliant.ORM.Odbc">
+            <summary>
+            Odbc数据访问对象
+            </summary>
+        </member>
+        <member name="P:Brilliant.ORM.Odbc.DataPagedType">
+            <summary>
+            数据库分页类型
+            </summary>
+        </member>
+        <member name="M:Brilliant.ORM.Odbc.#ctor">
+            <summary>
+            构造器
+            </summary>
+        </member>
+        <member name="M:Brilliant.ORM.Odbc.#ctor(System.String)">
+            <summary>
+            构造器
+            </summary>
+            <param name="connectionString">连接字符串</param>
+        </member>
+        <member name="M:Brilliant.ORM.Odbc.GetConnection">
+            <summary>
+            返回一个新的Connection实例
+            </summary>
+            <returns>Connection实例</returns>
+        </member>
+        <member name="M:Brilliant.ORM.Odbc.GetCommand">
+            <summary>
+            返回一个新的Command实例
+            </summary>
+            <returns>Command实例</returns>
+        </member>
+        <member name="M:Brilliant.ORM.Odbc.GetDataAdapter">
+            <summary>
+            返回一个新的DataAdapter实例
+            </summary>
+            <returns>DataAdapter实例</returns>
+        </member>
+        <member name="M:Brilliant.ORM.Odbc.GetParameter">
+            <summary>
+            返回一个新的DataParameter对象实例
+            </summary>
+            <returns>DataParameter对象</returns>
+        </member>
+        <member name="M:Brilliant.ORM.Odbc.GetDataProvider">
+            <summary>
+            返回一个新的IDataProvider实例
+            </summary>
+            <returns>DataProvider实例</returns>
+        </member>
+        <member name="T:Brilliant.ORM.OleDb">
+            <summary>
+            OleDb数据访问对象
+            </summary>
+        </member>
+        <member name="P:Brilliant.ORM.OleDb.DataPagedType">
+            <summary>
+            数据库分页类型
+            </summary>
+        </member>
+        <member name="M:Brilliant.ORM.OleDb.#ctor">
+            <summary>
+            构造器
+            </summary>
+        </member>
+        <member name="M:Brilliant.ORM.OleDb.#ctor(System.String)">
+            <summary>
+            构造器
+            </summary>
+            <param name="connectionString">连接字符串</param>
+        </member>
+        <member name="M:Brilliant.ORM.OleDb.GetConnection">
+            <summary>
+            返回一个新的Connection实例
+            </summary>
+            <returns>Connection实例</returns>
+        </member>
+        <member name="M:Brilliant.ORM.OleDb.GetCommand">
+            <summary>
+            返回一个新的Command实例
+            </summary>
+            <returns>Command实例</returns>
+        </member>
+        <member name="M:Brilliant.ORM.OleDb.GetDataAdapter">
+            <summary>
+            返回一个新的DataAdapter实例
+            </summary>
+            <returns>DataAdapter实例</returns>
+        </member>
+        <member name="M:Brilliant.ORM.OleDb.GetParameter">
+            <summary>
+            返回一个新的DataParameter对象实例
+            </summary>
+            <returns>DataParameter实例</returns>
+        </member>
+        <member name="M:Brilliant.ORM.OleDb.GetDataProvider">
+            <summary>
+            返回一个新的IDataProvider实例
+            </summary>
+            <returns>DataProvider实例</returns>
+        </member>
+        <member name="T:Brilliant.ORM.SqlMap">
+            <summary>
+            SqlMap类
+            </summary>
+        </member>
+        <member name="F:Brilliant.ORM.SqlMap.sqlList">
+            <summary>
+            SQL对象列表
+            </summary>
+        </member>
+        <member name="M:Brilliant.ORM.SqlMap.#ctor">
+            <summary>
+            默认构造器
+            </summary>
+        </member>
+        <member name="M:Brilliant.ORM.SqlMap.#ctor(Brilliant.ORM.SQL)">
+            <summary>
+            带参构造器
+            </summary>
+            <param name="sql">SQL对象</param>
+        </member>
+        <member name="M:Brilliant.ORM.SqlMap.#ctor(System.Collections.Generic.List{Brilliant.ORM.SQL})">
+            <summary>
+            带参构造器
+            </summary>
+            <param name="sqlList">SQL对象列表</param>
+        </member>
+        <member name="M:Brilliant.ORM.SqlMap.ParseSql(Brilliant.ORM.SQL)">
+            <summary>
+            解析查询语句返回当前对象实例
+            </summary>
+            <param name="sql">查询语句参数</param>
+            <returns>当前对象实例</returns>
+        </member>
+        <member name="M:Brilliant.ORM.SqlMap.ParseSql(System.Collections.Generic.List{Brilliant.ORM.SQL})">
+            <summary>
+            解析查询语句返回当前对象实例
+            </summary>
+            <param name="sqlList">查询语句参数列表</param>
+            <returns>当前对象实例</returns>
+        </member>
+        <member name="M:Brilliant.ORM.SqlMap.Execute">
+            <summary>
+            执行查询语句返回受影响行数
+            </summary>
+            <returns>受影响行数</returns>
+        </member>
+        <member name="M:Brilliant.ORM.SqlMap.Execute(Brilliant.ORM.IDataProvider)">
+            <summary>
+            执行查询语句返回受影响行数(用于事务过程)
+            </summary>
+            <param name="dataProvider">关联DataProvider对象</param>
+            <returns>受影响行数</returns>
+        </member>
+        <member name="M:Brilliant.ORM.SqlMap.First">
+            <summary>
+            执行查询语句返回第一行第一列的值
+            </summary>
+            <returns>第一行第一列的值</returns>
+        </member>
+        <member name="M:Brilliant.ORM.SqlMap.First``1">
+            <summary>
+            执行查询语句返回第一行第一列的值
+            </summary>
+            <typeparam name="T">返回值的类型</typeparam>
+            <returns>第一行第一列的值</returns>
+        </member>
+        <member name="T:Brilliant.ORM.SqlMap`1">
+            <summary>
+            SqlMap类
+            </summary>
+            <typeparam name="T">实体类型</typeparam>
+        </member>
+        <member name="M:Brilliant.ORM.SqlMap`1.#ctor">
+            <summary>
+            默认构造器
+            </summary>
+        </member>
+        <member name="M:Brilliant.ORM.SqlMap`1.#ctor(Brilliant.ORM.SQL)">
+            <summary>
+            带参构造器
+            </summary>
+            <param name="sql">SQL对象</param>
+        </member>
+        <member name="M:Brilliant.ORM.SqlMap`1.#ctor(System.Collections.Generic.List{Brilliant.ORM.SQL})">
+            <summary>
+            带参构造器
+            </summary>
+            <param name="sqlList">SQL对象列表</param>
+        </member>
+        <member name="M:Brilliant.ORM.SqlMap`1.ParseSql(Brilliant.ORM.SQL)">
+            <summary>
+            解析查询语句返回当前对象实例
+            </summary>
+            <param name="sql">查询语句参数</param>
+            <returns>当前对象实例</returns>
+        </member>
+        <member name="M:Brilliant.ORM.SqlMap`1.ParseSql(System.Collections.Generic.List{Brilliant.ORM.SQL})">
+            <summary>
+            解析查询语句返回当前对象实例
+            </summary>
+            <param name="sqlList">查询语句参数列表</param>
+            <returns>当前对象实例</returns>
+        </member>
+        <member name="M:Brilliant.ORM.SqlMap`1.ParseExp(System.Linq.IQueryable{`0})">
+            <summary>
+            解析Linq表达式返回当前对象实例
+            </summary>
+            <param name="expression">Linq表达式</param>
+            <returns>当前对象实例</returns>
+        </member>
+        <member name="M:Brilliant.ORM.SqlMap`1.GetResult">
+            <summary>
+            获取查询结果
+            </summary>
+            <returns>查询结果</returns>
+        </member>
+        <member name="M:Brilliant.ORM.SqlMap`1.GetObject(System.Data.DataTable)">
+            <summary>
+            从查询结果中获取对象
+            </summary>
+            <param name="dtResult">查询结果</param>
+            <returns>对象</returns>
+        </member>
+        <member name="M:Brilliant.ORM.SqlMap`1.GetList(System.Data.DataTable)">
+            <summary>
+            从查询结果中获取对象集合
+            </summary>
+            <param name="dtResult">查询结果</param>
+            <returns>对象集合</returns>
+        </member>
+        <member name="M:Brilliant.ORM.SqlMap`1.GetPropertyList(System.Data.DataTable)">
+            <summary>
+            从查询结果中获取对象属性列表
+            </summary>
+            <param name="dtResult">查询结果</param>
+            <returns>对象属性列表</returns>
+        </member>
+        <member name="M:Brilliant.ORM.SqlMap`1.ToObject">
+            <summary>
+            将执行结果转换为对象
+            </summary>
+            <returns>对象</returns>
+        </member>
+        <member name="M:Brilliant.ORM.SqlMap`1.ToList">
+            <summary>
+            将执行结果转换为对象集合
+            </summary>
+            <returns>对象集合</returns>
+        </member>
+        <member name="M:Brilliant.ORM.SqlMap`1.ToJsonObject">
+            <summary>
+            将执行结果转换为Json对象
+            </summary>
+            <returns>Json对象</returns>
+        </member>
+        <member name="M:Brilliant.ORM.SqlMap`1.ToJsonObject(System.Boolean)">
+            <summary>
+            将执行结果转换为Json对象
+            </summary>
+            <param name="onlyProperty">只把关联对象的属性转换为Json，不转换关联对象</param>
+            <returns>Json对象</returns>
+            <remarks>时间：2014-09-05 类型：新增</remarks>
+        </member>
+        <member name="M:Brilliant.ORM.SqlMap`1.ToJsonList">
+            <summary>
+            将执行结果转换为Json对象列表
+            </summary>
+            <returns>Json对象列表</returns>
+        </member>
+        <member name="M:Brilliant.ORM.SqlMap`1.ToJsonList(System.Boolean)">
+            <summary>
+            将执行结果转换为Json对象列表
+            </summary>
+            <param name="onlyProperty">只把关联对象的属性转换为Json，不转换关联对象</param>
+            <returns>Json对象列表</returns>
+            <remarks>时间：2014-09-05 类型：新增</remarks>
+        </member>
+        <member name="T:Brilliant.ORM.SQL">
+            <summary>
+            查询指令构建类
+            </summary>
+        </member>
+        <member name="P:Brilliant.ORM.SQL.CmdText">
+            <summary>
+            查询指令
+            </summary>
+        </member>
+        <member name="P:Brilliant.ORM.SQL.CmdType">
+            <summary>
+            指令类型（默认为Text）
+            </summary>
+        </member>
+        <member name="P:Brilliant.ORM.SQL.Parameters">
+            <summary>
+            查询语句参数列表
+            </summary>
+        </member>
+        <member name="P:Brilliant.ORM.SQL.RecordCount">
+            <summary>
+            总记录条数
+            </summary>
+        </member>
+        <member name="M:Brilliant.ORM.SQL.#ctor">
+            <summary>
+            构造函数
+            </summary>
+        </member>
+        <member name="M:Brilliant.ORM.SQL.#ctor(System.String)">
+            <summary>
+            构造函数
+            </summary>
+            <param name="cmdText">查询指令</param>
+        </member>
+        <member name="M:Brilliant.ORM.SQL.#ctor(System.String,System.Data.CommandType)">
+            <summary>
+            构造函数
+            </summary>
+            <param name="cmdText">查询指令</param>
+            <param name="cmdType">指令类型</param>
+        </member>
+        <member name="M:Brilliant.ORM.SQL.Build(System.String)">
+            <summary>
+            构建查询指令参数
+            </summary>
+            <param name="cmdText">指令文本</param>
+            <returns>查询指令参数</returns>
+        </member>
+        <member name="M:Brilliant.ORM.SQL.Build(System.String,System.Boolean)">
+            <summary>
+            构建查询指令参数
+            </summary>
+            <param name="cmdText">指令文本</param>
+            <param name="isProc">是否是存储过程</param>
+            <returns>查询指令参数</returns>
+        </member>
+        <member name="M:Brilliant.ORM.SQL.Build(System.String,System.Object[])">
+            <summary>
+            构建查询指令参数
+            </summary>
+            <param name="cmdText">指令文本</param>
+            <param name="parameters">指令参数</param>
+            <returns>查询指令参数</returns>
+        </member>
+        <member name="M:Brilliant.ORM.SQL.Build(System.String,System.String[],System.Object[])">
+            <summary>
+            构建查询指令参数（存储过程）
+            </summary>
+            <param name="cmdText">指令文本</param>
+            <param name="parameterNames">指令参数名称</param>
+            <param name="parameters">指令参数</param>
+            <returns>查询指令参数</returns>
+        </member>
+        <member name="M:Brilliant.ORM.SQL.Format(System.String,System.Object[])">
+            <summary>
+            格式化查询指令
+            </summary>
+            <param name="cmdText">指令文本</param>
+            <param name="parameters">指令参数</param>
+            <returns>查询指令参数</returns>
+            <remarks>时间：2014-09-05</remarks>
+        </member>
+        <member name="M:Brilliant.ORM.SQL.Limit(System.Int32,System.Int32)">
+            <summary>
+            限制返回的结果记录条数
+            </summary>
+            <param name="pageSize">每页显示的记录条数</param>
+            <param name="pageNumber">当前页码</param>
+            <returns>查询指令参数</returns>
+        </member>
+        <member name="M:Brilliant.ORM.SQL.SetRecordCount">
+            <summary>
+            设置总记录条数
+            </summary>
+        </member>
+        <member name="M:Brilliant.ORM.SQL.AddParameter(System.String,System.Object)">
+            <summary>
+            添加参数
+            </summary>
+            <param name="parameterName">参数名称</param>
+            <param name="value">参数值</param>
+        </member>
+        <member name="M:Brilliant.ORM.SQL.AddParameter(System.String,System.Data.DbType,System.Int32,System.Object)">
+            <summary>
+            添加参数
+            </summary>
+            <param name="parameterName">参数名称</param>
+            <param name="dbType">参数类型</param>
+            <param name="size">参数大小</param>
+            <param name="value">参数值</param>
+        </member>
+        <member name="M:Brilliant.ORM.SQL.ToString">
+            <summary>
+            显示查询指令语句
+            </summary>
+            <returns>查询指令语句</returns>
+        </member>
+        <member name="T:Brilliant.ORM.SqlBuilder">
+            <summary>
+            SQL关键词
+            </summary>
+        </member>
+        <member name="M:Brilliant.ORM.SqlBuilder.#ctor">
+            <summary>
+            构造函数
+            </summary>
+        </member>
+        <member name="P:Brilliant.ORM.SqlBuilder.Take">
+            <summary>
+            取符合条件的数据
+            </summary>
+        </member>
+        <member name="P:Brilliant.ORM.SqlBuilder.Skip">
+            <summary>
+            跳过指定数据
+            </summary>
+        </member>
+        <member name="P:Brilliant.ORM.SqlBuilder.Where">
+            <summary>
+            Where条件
+            </summary>
+        </member>
+        <member name="P:Brilliant.ORM.SqlBuilder.Group">
+            <summary>
+            分组条件
+            </summary>
+        </member>
+        <member name="P:Brilliant.ORM.SqlBuilder.Select">
+            <summary>
+            选取字段
+            </summary>
+        </member>
+        <member name="P:Brilliant.ORM.SqlBuilder.InnerSql">
+            <summary>
+            连接语句
+            </summary>
+        </member>
+        <member name="P:Brilliant.ORM.SqlBuilder.From">
+            <summary>
+            查询表名
+            </summary>
+        </member>
+        <member name="P:Brilliant.ORM.SqlBuilder.OderBy">
+            <summary>
+            排序条件
+            </summary>
+        </member>
+        <member name="P:Brilliant.ORM.SqlBuilder.Operator">
+            <summary>
+            操作符
+            </summary>
+        </member>
+        <member name="P:Brilliant.ORM.SqlBuilder.Alias">
+            <summary>
+            别名
+            </summary>
+        </member>
+        <member name="M:Brilliant.ORM.SqlBuilder.Append(System.Object)">
+            <summary>
+            追加SQL语句段
+            </summary>
+            <param name="value">字段值</param>
+        </member>
+        <member name="M:Brilliant.ORM.SqlBuilder.ToString">
+            <summary>
+            返回当前创建的SQL语句
+            </summary>
+            <returns>SQL语句</returns>
+        </member>
+        <member name="T:Brilliant.ORM.SqlOperator">
+            <summary>
+            SQL操作符
+            </summary>
+        </member>
+        <member name="F:Brilliant.ORM.SqlOperator.None">
+            <summary>
+            默认值
+            </summary>
+        </member>
+        <member name="F:Brilliant.ORM.SqlOperator.Take">
+            <summary>
+            取符合条件的数据
+            </summary>
+        </member>
+        <member name="F:Brilliant.ORM.SqlOperator.Skip">
+            <summary>
+            跳过指定数据
+            </summary>
+        </member>
+        <member name="F:Brilliant.ORM.SqlOperator.Where">
+            <summary>
+            Where条件
+            </summary>
+        </member>
+        <member name="F:Brilliant.ORM.SqlOperator.Group">
+            <summary>
+            分组条件
+            </summary>
+        </member>
+        <member name="F:Brilliant.ORM.SqlOperator.Select">
+            <summary>
+            选取字段
+            </summary>
+        </member>
+        <member name="F:Brilliant.ORM.SqlOperator.InnerSql">
+            <summary>
+            连接语句
+            </summary>
+        </member>
+        <member name="F:Brilliant.ORM.SqlOperator.From">
+            <summary>
+            查询表名
+            </summary>
+        </member>
+        <member name="F:Brilliant.ORM.SqlOperator.OrderByAsc">
+            <summary>
+            正序
+            </summary>
+        </member>
+        <member name="F:Brilliant.ORM.SqlOperator.OrderByDesc">
+            <summary>
+            倒序
+            </summary>
+        </member>
+        <member name="T:Brilliant.ORM.SqlServer">
+            <summary>
+            SqlServer数据库访问对象
+            </summary>
+        </member>
+        <member name="P:Brilliant.ORM.SqlServer.DataPagedType">
+            <summary>
+            数据库分页类型
+            </summary>
+        </member>
+        <member name="M:Brilliant.ORM.SqlServer.#ctor">
+            <summary>
+            构造器
+            </summary>
+        </member>
+        <member name="M:Brilliant.ORM.SqlServer.#ctor(System.String)">
+            <summary>
+            构造器
+            </summary>
+            <param name="connectionString">连接字符串</param>
+        </member>
+        <member name="M:Brilliant.ORM.SqlServer.GetConnection">
+            <summary>
+            返回一个新的Connection实例
+            </summary>
+            <returns>Connection实例</returns>
+        </member>
+        <member name="M:Brilliant.ORM.SqlServer.GetCommand">
+            <summary>
+            返回一个新的Command实例
+            </summary>
+            <returns>Command实例</returns>
+        </member>
+        <member name="M:Brilliant.ORM.SqlServer.GetDataAdapter">
+            <summary>
+            返回一个新的DataAdapter实例
+            </summary>
+            <returns>DataAdapter实例</returns>
+        </member>
+        <member name="M:Brilliant.ORM.SqlServer.GetParameter">
+            <summary>
+            返回一个新的DataParameter对象实例
+            </summary>
+            <returns>DataParameter对象</returns>
+        </member>
+        <member name="M:Brilliant.ORM.SqlServer.GetDataProvider">
+            <summary>
+            返回一个新的IDataProvider实例
+            </summary>
+            <returns>DataProvider实例</returns>
+        </member>
+        <member name="T:Brilliant.ORM.TypeMap">
+            <summary>
+            类型映射
+            </summary>
+        </member>
+        <member name="P:Brilliant.ORM.TypeMap.DefaultDateTime">
+            <summary>
+            默认日期
+            </summary>
+        </member>
+        <member name="M:Brilliant.ORM.TypeMap.FilterNull(System.Object)">
+            <summary>
+            过滤Null值
+            </summary>
+            <param name="obj">原始值</param>
+            <returns>过滤之后的值</returns>
+        </member>
+    </members>
+</doc>

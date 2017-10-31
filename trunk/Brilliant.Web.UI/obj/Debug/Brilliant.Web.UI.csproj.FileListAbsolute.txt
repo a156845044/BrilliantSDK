@@ -1,0 +1,6 @@
+E:\projects\myprojects\BrilliantSDK\trunk\Brilliant.Web.UI\bin\Debug\Brilliant.Web.UI.dll
+E:\projects\myprojects\BrilliantSDK\trunk\Brilliant.Web.UI\bin\Debug\Brilliant.Web.UI.pdb
+E:\projects\myprojects\BrilliantSDK\trunk\Brilliant.Web.UI\obj\Debug\Brilliant.Web.UI.csprojResolveAssemblyReference.cache
+E:\projects\myprojects\BrilliantSDK\trunk\Brilliant.Web.UI\obj\Debug\Brilliant.Web.UI.csproj.CoreCompileInputs.cache
+E:\projects\myprojects\BrilliantSDK\trunk\Brilliant.Web.UI\obj\Debug\Brilliant.Web.UI.dll
+E:\projects\myprojects\BrilliantSDK\trunk\Brilliant.Web.UI\obj\Debug\Brilliant.Web.UI.pdb

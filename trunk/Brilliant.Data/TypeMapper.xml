@@ -1,0 +1,16 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<TypeMap>
+  <Type name=",default," java="Object" javaparser="getObject" cs="object" csparser="(object)" />
+  <Type name=",char,clob,longtext,mediumtext,memo,nchar,nclob,ntext,nvarchar,rowid,tinytext,text,urowid,varchar,varchar2,xml," java="String" javaparser="getString" cs="string" csparser="Convert.ToString" />
+  <Type name=",bfile,blob,byte,binary,longblob,mediumblob,image,tinyblob,varbinary,raw,longraw," java="byte[]" javaparser="(byte[])" cs="byte[]" csparser="(byte[])" />
+  <Type name=",autonumber,int,integer,mediumint,number,tinyint," java="int" javaparser="getInt" cs="int" csparser="Convert.ToInt32" />
+  <Type name=",binary_float,binary_double,double,float," java="double" javaparser="getDouble" cs="double" csparser="Convert.ToDouble" />
+  <Type name=",currency,decimal,money,numeric,smallmoney," java="BigDecimal" javaparser="getBigDecimal" cs="decimal" csparser="Convert.ToDecimal" />
+  <Type name=",single,real," java="float" javaparser="getFloat" cs="Single" csparser="Convert.ToSingle" />
+  <Type name=",smallint," java="short" javaparser="getShort" cs="short" csparser="Convert.ToInt16" />
+  <Type name=",bigint,long," java="long" javaparser="getLong" cs="long" csparser="Convert.ToInt64" />
+  <Type name=",date,time,datetime,datetime2,smalldatetime," java="Date" javaparser="getDate" cs="DateTime" csparser="Convert.ToDateTime" />
+  <Type name=",datetimeoffset," java="Date" javaparser="getDate" cs="DateTimeOffset" csparser="(DateTimeOffset)" />
+  <Type name=",timestamp," java="Timestamp" javaparser="getTimestamp" cs="byte[]" csparser="(byte[])" />
+  <Type name=",yes,no,bit,enum," java="boolean" javaparser="getBoolean" cs="bool" csparser="Convert.ToBoolean" />
+</TypeMap>

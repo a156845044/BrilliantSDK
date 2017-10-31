@@ -1,0 +1,17 @@
+E:\projects\BrilliantSDK\trunk\Brilliant.Utility\bin\Debug\Brilliant.Utility.XML
+E:\projects\BrilliantSDK\trunk\Brilliant.Utility\bin\Debug\Brilliant.Utility.dll
+E:\projects\BrilliantSDK\trunk\Brilliant.Utility\bin\Debug\Brilliant.Utility.pdb
+E:\projects\BrilliantSDK\trunk\Brilliant.Utility\bin\Debug\Newtonsoft.Json.dll
+E:\projects\BrilliantSDK\trunk\Brilliant.Utility\bin\Debug\Newtonsoft.Json.xml
+E:\projects\BrilliantSDK\trunk\Brilliant.Utility\obj\Debug\Brilliant.Utility.dll
+E:\projects\BrilliantSDK\trunk\Brilliant.Utility\obj\Debug\Brilliant.Utility.pdb
+E:\projects\BrilliantSDK\trunk\Brilliant.Utility\obj\Debug\Brilliant.Utility.csprojResolveAssemblyReference.cache
+E:\projects\myprojects\BrilliantSDK\trunk\Brilliant.Utility\bin\Debug\Brilliant.Utility.XML
+E:\projects\myprojects\BrilliantSDK\trunk\Brilliant.Utility\bin\Debug\Brilliant.Utility.dll
+E:\projects\myprojects\BrilliantSDK\trunk\Brilliant.Utility\bin\Debug\Brilliant.Utility.pdb
+E:\projects\myprojects\BrilliantSDK\trunk\Brilliant.Utility\bin\Debug\Newtonsoft.Json.dll
+E:\projects\myprojects\BrilliantSDK\trunk\Brilliant.Utility\bin\Debug\Newtonsoft.Json.xml
+E:\projects\myprojects\BrilliantSDK\trunk\Brilliant.Utility\obj\Debug\Brilliant.Utility.csprojResolveAssemblyReference.cache
+E:\projects\myprojects\BrilliantSDK\trunk\Brilliant.Utility\obj\Debug\Brilliant.Utility.csproj.CoreCompileInputs.cache
+E:\projects\myprojects\BrilliantSDK\trunk\Brilliant.Utility\obj\Debug\Brilliant.Utility.dll
+E:\projects\myprojects\BrilliantSDK\trunk\Brilliant.Utility\obj\Debug\Brilliant.Utility.pdb

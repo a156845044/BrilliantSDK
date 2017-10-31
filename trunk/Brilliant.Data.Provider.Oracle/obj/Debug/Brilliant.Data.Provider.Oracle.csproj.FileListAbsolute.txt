@@ -1,0 +1,9 @@
+E:\projects\myprojects\BrilliantSDK\trunk\Brilliant.Data.Provider.Oracle\bin\Debug\Brilliant.Data.Provider.Oracle.dll
+E:\projects\myprojects\BrilliantSDK\trunk\Brilliant.Data.Provider.Oracle\bin\Debug\Brilliant.Data.Provider.Oracle.pdb
+E:\projects\myprojects\BrilliantSDK\trunk\Brilliant.Data.Provider.Oracle\bin\Debug\Brilliant.Data.dll
+E:\projects\myprojects\BrilliantSDK\trunk\Brilliant.Data.Provider.Oracle\bin\Debug\Oracle.ManagedDataAccess.dll
+E:\projects\myprojects\BrilliantSDK\trunk\Brilliant.Data.Provider.Oracle\bin\Debug\Brilliant.Data.pdb
+E:\projects\myprojects\BrilliantSDK\trunk\Brilliant.Data.Provider.Oracle\obj\Debug\Brilliant.Data.Provider.Oracle.csprojResolveAssemblyReference.cache
+E:\projects\myprojects\BrilliantSDK\trunk\Brilliant.Data.Provider.Oracle\obj\Debug\Brilliant.Data.Provider.Oracle.csproj.CoreCompileInputs.cache
+E:\projects\myprojects\BrilliantSDK\trunk\Brilliant.Data.Provider.Oracle\obj\Debug\Brilliant.Data.Provider.Oracle.dll
+E:\projects\myprojects\BrilliantSDK\trunk\Brilliant.Data.Provider.Oracle\obj\Debug\Brilliant.Data.Provider.Oracle.pdb

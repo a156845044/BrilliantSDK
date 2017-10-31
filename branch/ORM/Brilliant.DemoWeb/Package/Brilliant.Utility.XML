@@ -1,0 +1,576 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>Brilliant.Utility</name>
+    </assembly>
+    <members>
+        <member name="T:Brilliant.Utility.DownloadHelper">
+            <summary>
+            文件下载工具类
+            </summary>
+        </member>
+        <member name="M:Brilliant.Utility.DownloadHelper.DownloadFile(System.String)">
+            <summary>
+            Http文件下载
+            </summary>
+            <param name="filePath">文件虚拟路径 如：~/Upload/Test.zip</param>
+        </member>
+        <member name="T:Brilliant.Utility.StringHelper">
+            <summary>
+            字符串操作工具类
+            </summary>
+        </member>
+        <member name="M:Brilliant.Utility.StringHelper.ConvertToChineseSpellingAbbr(System.String)">
+            <summary>
+            将指定文本转化为汉语拼音缩写
+            </summary>
+            <param name="text">文本 如：赵文凯</param>
+            <returns>汉语拼音缩写 如：zwk</returns>
+        </member>
+        <member name="M:Brilliant.Utility.StringHelper.GetPrimaryKey">
+            <summary>
+            获取主键编号(长度21位)
+            </summary>
+            <returns>主键编号</returns>
+        </member>
+        <member name="M:Brilliant.Utility.StringHelper.TrimString(System.String)">
+            <summary>
+            去除字符串中的空格、制表符、换行、新行
+            </summary>
+            <param name="str">原字符串</param>
+            <returns>新字符串</returns>
+        </member>
+        <member name="T:Brilliant.Utility.MsgBoxHelper">
+            <summary>
+            提示框工具类
+            </summary>
+        </member>
+        <member name="M:Brilliant.Utility.MsgBoxHelper.ShowUpdatePanelMsgBox(System.String,System.Web.UI.Page)">
+            <summary>
+            在UpdatePanel中弹出提示框
+            </summary>
+            <param name="str">提示框显示文本</param>
+            <param name="page">当前页面对象</param>
+        </member>
+        <member name="M:Brilliant.Utility.MsgBoxHelper.ShowUpdatePanelMsgBoxAndRedirect(System.String,System.String,System.Web.UI.Page)">
+            <summary>
+            在UpdatePanel中弹出提示框，并将当前页面导向指定页面
+            </summary>
+            <param name="str">提示框显示文本</param>
+            <param name="url">跳转路径</param>
+            <param name="page">当前页面对象</param>
+        </member>
+        <member name="M:Brilliant.Utility.MsgBoxHelper.ShowUpdatePanelMsgBoxAndRedirectFrame(System.String,System.String,System.Web.UI.Page)">
+            <summary>
+            在UpdatePanel中弹出提示框，并将当前页面导向指定页面(适用于跳出框架页)
+            </summary>
+            <param name="str">提示框显示文本</param>
+            <param name="url">跳转路径</param>
+            <param name="page">当前页面对象</param>
+        </member>
+        <member name="M:Brilliant.Utility.MsgBoxHelper.ShowMsgBox(System.String,System.Web.UI.Page)">
+            <summary>
+            弹出提示框
+            </summary>
+            <param name="str">提示框显示文本</param>
+            <param name="page">当前页面对象</param>
+        </member>
+        <member name="M:Brilliant.Utility.MsgBoxHelper.ShowMsgAndRedirect(System.String,System.String,System.Web.UI.Page)">
+            <summary>
+            弹出提示框，并将当前页面导向指定页面
+            </summary>
+            <param name="str">提示框显示文本</param>
+            <param name="url">跳转路径</param>
+            <param name="page">当前页面对象</param>
+        </member>
+        <member name="M:Brilliant.Utility.MsgBoxHelper.ShowMsgAndRedirectFrame(System.String,System.String,System.Web.UI.Page)">
+            <summary>
+            弹出提示框，并将当前页面导向指定页面(适用于跳出框架页)
+            </summary>
+            <param name="str">提示框显示文本</param>
+            <param name="url">跳转路径</param>
+            <param name="page">当前页面对象</param>
+        </member>
+        <member name="T:Brilliant.Utility.DateHelper">
+            <summary>
+            日期工具类
+            </summary>
+        </member>
+        <member name="M:Brilliant.Utility.DateHelper.GetDaysOfMonth(System.Int32,System.Int32)">
+            <summary>
+            获取指定年月共有多少天
+            </summary>
+            <param name="year">年度</param>
+            <param name="month">月份</param>
+            <returns>该月天数</returns>
+        </member>
+        <member name="M:Brilliant.Utility.DateHelper.GetWeek(System.DateTime,System.DateTime@,System.DateTime@)">
+            <summary>
+            获取指定日期所在周的起止日期
+            </summary>
+            <param name="dateTime">指定日期 如：2013-11-11</param>
+            <param name="dtWeekStart">返回参数：周开始日期</param>
+            <param name="dtWeekeEnd">返回参数：周结束时间</param>
+        </member>
+        <member name="M:Brilliant.Utility.DateHelper.GetWeekName(System.DayOfWeek)">
+            <summary>
+            获取指定星期中文名称
+            </summary>
+            <param name="dayOfWeek">指定星期 如：Monday</param>
+            <returns>星期中文名称 如：星期一</returns>
+        </member>
+        <member name="M:Brilliant.Utility.DateHelper.GetWeekOfYear(System.DateTime)">
+            <summary>
+            返回指定日期是当前年的第几周
+            </summary>
+            <param name="dateTime">指定日期 如：2013-11-11</param>
+            <returns>第几周 如:46</returns>
+        </member>
+        <member name="M:Brilliant.Utility.DateHelper.GetWeeksOfYear(System.Int32)">
+            <summary>
+            获取指定年份一共有多少周
+            </summary>
+            <param name="year">年 如：2013</param>
+            <returns>一共有多少周</returns>
+        </member>
+        <member name="T:Brilliant.Utility.HtmlHelper">
+            <summary>
+            Html文本操作工具类
+            </summary>
+        </member>
+        <member name="M:Brilliant.Utility.HtmlHelper.HtmlEncodeFilter(System.String)">
+            <summary>
+            去除Html文本中的空格和换行
+            </summary>
+            <param name="htmlText">HTML源码</param>
+            <returns>去除空格和换行后的Html文本</returns>
+        </member>
+        <member name="M:Brilliant.Utility.HtmlHelper.GetElementById(System.String,System.String)">
+            <summary>
+            获取指定ID的标签内容
+            </summary>
+            <param name="htmlText">HTML源码</param>
+            <param name="id">标签ID</param>
+            <returns>标签内容</returns>
+        </member>
+        <member name="M:Brilliant.Utility.HtmlHelper.GetElementsByClass(System.String,System.String)">
+            <summary>
+            通过class属性获取对应标签集合
+            </summary>
+            <param name="htmlText">HTML源码</param>
+            <param name="className">class值</param>
+            <returns>标签集合</returns>
+        </member>
+        <member name="M:Brilliant.Utility.HtmlHelper.GetElementsByTagName(System.String,System.String)">
+            <summary>
+            通过标签名获取标签集合
+            </summary>
+            <param name="htmlText">HTML源码</param>
+            <param name="tagName">标签名(如div)</param>
+            <returns>标签集合</returns>
+        </member>
+        <member name="M:Brilliant.Utility.HtmlHelper.GetElementsByTagAndClass(System.String,System.String,System.String)">
+            <summary>
+            通过同时指定标签名+class值获取标签集合
+            </summary>
+            <param name="htmlText">HTML源码</param>
+            <param name="tagName">标签名</param>
+            <param name="className">class值</param>
+            <returns>标签集合</returns>
+        </member>
+        <member name="M:Brilliant.Utility.HtmlHelper.GetElements(System.String,System.String,System.String)">
+            <summary>
+            通过同时指定标签名+class值获取标签集合
+            </summary>
+            <param name="htmlText">HTML源码</param>
+            <param name="tagName">标签名</param>
+            <param name="className">class值</param>
+            <returns>标签集合</returns>
+        </member>
+        <member name="M:Brilliant.Utility.HtmlHelper.GetListByHtml(System.String,System.String)">
+            <summary>
+            根据表达式获取内容
+            </summary>
+            <param name="htmlText">HTML源码</param>
+            <param name="expression">正则表达式</param>
+            <returns>内容</returns>
+        </member>
+        <member name="M:Brilliant.Utility.HtmlHelper.RemoveHtmlTags(System.String)">
+            <summary>
+            去除html标签
+            </summary>
+            <param name="htmlText">HTML源码</param>
+            <returns>移除标签后的文本</returns>
+        </member>
+        <member name="M:Brilliant.Utility.HtmlHelper.GetHtmlImageUrlList(System.String)">
+            <summary>
+            取得HTML中所有图片的URL
+            </summary>
+            <param name="htmlText">HTML代码</param>
+            <returns>图片的URL列表</returns>
+        </member>
+        <member name="M:Brilliant.Utility.HtmlHelper.GetHtmlAltList(System.String)">
+            <summary>
+            获取img的alt标签
+            </summary>
+            <param name="htmlText">HTML代码</param>
+            <returns>Alt标签列表</returns>
+        </member>
+        <member name="M:Brilliant.Utility.HtmlHelper.GetHtmlLinkList(System.String)">
+            <summary>
+            获取a标签的href属性列表
+            </summary>
+            <param name="htmlText">HTML代码</param>
+            <returns>href属性列表</returns>
+        </member>
+        <member name="T:Brilliant.Utility.GridViewHelper">
+            <summary>
+            GridView操作工具类
+            </summary>
+        </member>
+        <member name="M:Brilliant.Utility.GridViewHelper.ZebraLineEffect(System.Web.UI.WebControls.GridViewRowEventArgs,System.String)">
+            <summary>
+            为GridView添加光棒效果
+            </summary>
+            <param name="e">GridView事件参数</param>
+            <param name="zebraLineColor">光棒效果背景色 如：#CCC #EFEFEF Red等</param>
+        </member>
+        <member name="M:Brilliant.Utility.GridViewHelper.GroupRows(System.Web.UI.WebControls.GridView,System.Int32)">
+            <summary>
+            合并GridView指定列中相同内容的行
+            </summary>
+            <param name="gridView">GridView</param>
+            <param name="colNum">指定列</param>
+        </member>
+        <member name="M:Brilliant.Utility.GridViewHelper.GroupRows(System.Web.UI.WebControls.GridView,System.Int32,System.Int32)">
+            <summary>
+            根据条件合并GridView指定列中相同内容的行
+            </summary>
+            <param name="gridView">GridView</param>
+            <param name="colNum">指定列</param>
+            <param name="conditionCol">条件列</param>
+        </member>
+        <member name="T:Brilliant.Utility.EncryptHelper">
+            <summary>
+            字符串加解密工具类
+            </summary>
+        </member>
+        <member name="M:Brilliant.Utility.EncryptHelper.Encrypt(System.String,System.String)">
+            <summary>
+            DES加密算法
+            </summary>
+            <param name="originalString">待加密的字符串</param>
+            <param name="sKey">加密Key</param>
+            <returns>加密后的字符串</returns>
+        </member>
+        <member name="M:Brilliant.Utility.EncryptHelper.Decrypt(System.String,System.String)">
+            <summary>
+            DES解密算法
+            </summary>
+            <param name="originalString">待解密的字符串</param>
+            <param name="sKey">解密Key</param>
+            <returns>解密后的字符串</returns>
+        </member>
+        <member name="M:Brilliant.Utility.EncryptHelper.Md5(System.String)">
+            <summary>
+            MD5加密
+            </summary>
+            <param name="str">待加密的字符串</param>
+            <returns>加密后的字符串</returns>
+        </member>
+        <member name="T:Brilliant.Utility.JsonHelper">
+            <summary>
+            Json数据处理工具类
+            </summary>
+        </member>
+        <member name="M:Brilliant.Utility.JsonHelper.GetJson``1(``0)">
+            <summary>
+            将对象/对象集合转换成Json数据
+            </summary>
+            <typeparam name="T">对象类型</typeparam>
+            <param name="obj">对象</param>
+            <returns>Json数据</returns>
+        </member>
+        <member name="M:Brilliant.Utility.JsonHelper.ParseFromJson``1(System.String)">
+            <summary>
+            将Json数据转换成对象/对象集合
+            </summary>
+            <typeparam name="T">对象类型</typeparam>
+            <param name="json">Json数据</param>
+            <returns>对象/对象集合</returns>
+        </member>
+        <member name="T:Brilliant.Utility.ExcelHelper">
+            <summary>
+            Excel操作工具类
+            </summary>
+        </member>
+        <member name="M:Brilliant.Utility.ExcelHelper.GetOleDbConnectionString(System.String)">
+            <summary>
+            取得 OLEDB 的连接字符串.
+            优先启动 ACE 驱动，
+            假如 ACE 失败，再尝试启动 JET
+            该方法可能用不上。
+            因为 在 Office 2010 上面，Jet 与 ACE 都能正常运作
+            唯一需要注意的是， 如果目标机器的操作系统，是64位的话。
+            项目需要 编译为 x86， 而不是简单的使用默认的 Any CPU.
+            </summary>
+            <param name="excelFilePath">Excel文件</param>
+            <returns>连接字符串</returns>
+        </member>
+        <member name="M:Brilliant.Utility.ExcelHelper.CreateExcel(System.String,System.String)">
+            <summary>
+            创建Excel文件
+            </summary>
+            <param name="filePath">文件路径</param>
+            <param name="cmdText">待执行的创建语句</param>
+            <returns>受影响行数</returns>
+        </member>
+        <member name="M:Brilliant.Utility.ExcelHelper.InsertExcel(System.String,System.String,System.Collections.Generic.List{System.Data.OleDb.OleDbParameter[]})">
+            <summary>
+            插入数据到Excel文件
+            </summary>
+            <param name="filePath">文件路径</param>
+            <param name="cmdText">待执行的INSERT语句</param>
+            <param name="parameters">参数列表</param>
+            <returns>受影响行数</returns>
+        </member>
+        <member name="M:Brilliant.Utility.ExcelHelper.ModifyExcel(System.String,System.String,System.Data.OleDb.OleDbParameter[])">
+            <summary>
+            修改Excel中的数据
+            </summary>
+            <param name="filePath">文件路径</param>
+            <param name="cmdText">UPDATE或DELETE语句</param>
+            <param name="parameters">参数列表</param>
+            <returns>受影响行数</returns>
+        </member>
+        <member name="M:Brilliant.Utility.ExcelHelper.ReadExcel(System.String,System.String)">
+            <summary>
+            读取Excel文件
+            </summary>
+            <param name="filePath">文件路径</param>
+            <param name="cmdText">SELECT语句</param>
+            <returns>DataReader对象</returns>
+        </member>
+        <member name="T:Brilliant.Utility.ValidateHelper">
+            <summary>
+            正则验证工具类
+            </summary>
+        </member>
+        <member name="M:Brilliant.Utility.ValidateHelper.IsNonnegativeInteger(System.String)">
+            <summary>
+            是否非负整数
+            </summary>
+            <param name="str">待验证字符串</param>
+            <returns>验证结果</returns>
+        </member>
+        <member name="M:Brilliant.Utility.ValidateHelper.IsInteger(System.String)">
+            <summary>
+            是否整数
+            </summary>
+            <param name="str">待验证字符串</param>
+            <returns>验证结果</returns>
+        </member>
+        <member name="M:Brilliant.Utility.ValidateHelper.IsNonnegativeFloat(System.String)">
+            <summary>
+            是否非负浮点数
+            </summary>
+            <param name="str">待验证字符串</param>
+            <returns>验证结果</returns>
+        </member>
+        <member name="M:Brilliant.Utility.ValidateHelper.IsFloat(System.String)">
+            <summary>
+            是否浮点数
+            </summary>
+            <param name="str">待验证字符串</param>
+            <returns>验证结果</returns>
+        </member>
+        <member name="M:Brilliant.Utility.ValidateHelper.IsLetter(System.String)">
+            <summary>
+            是否英文字母
+            </summary>
+            <param name="str">待验证字符串</param>
+            <returns>验证结果</returns>
+        </member>
+        <member name="M:Brilliant.Utility.ValidateHelper.IsUpperLetter(System.String)">
+            <summary>
+            是否大写字母
+            </summary>
+            <param name="str">待验证字符串</param>
+            <returns>验证结果</returns>
+        </member>
+        <member name="M:Brilliant.Utility.ValidateHelper.IsLowerLetter(System.String)">
+            <summary>
+            是否小写字母
+            </summary>
+            <param name="str">待验证字符串</param>
+            <returns>验证结果</returns>
+        </member>
+        <member name="M:Brilliant.Utility.ValidateHelper.IsEmail(System.String)">
+            <summary>
+            是否邮箱
+            </summary>
+            <param name="str">待验证字符串</param>
+            <returns>验证结果</returns>
+        </member>
+        <member name="M:Brilliant.Utility.ValidateHelper.IsUrlAddress(System.String)">
+            <summary>
+            是否链接地址
+            </summary>
+            <param name="str">待验证字符串</param>
+            <returns>验证结果</returns>
+        </member>
+        <member name="T:Brilliant.Utility.XmlHelper">
+            <summary>
+            XML文件操作类
+            </summary>
+        </member>
+        <member name="M:Brilliant.Utility.XmlHelper.GetNode(System.String,System.String)">
+            <summary>
+            获取节点
+            </summary>
+            <param name="docPath">Xml文件路径</param>
+            <param name="xpath">xpath查询语句</param>
+            <returns>节点</returns>
+        </member>
+        <member name="M:Brilliant.Utility.XmlHelper.GetNode(System.String,System.String,System.String)">
+            <summary>
+            获取节点
+            </summary>
+            <param name="docPath">Xml文件路径</param>
+            <param name="xpath">xpath查询语句</param>
+            <param name="xmlNamespace">Xml引用空间（为空使用默认引用空间）</param>
+            <returns>节点</returns>
+        </member>
+        <member name="M:Brilliant.Utility.XmlHelper.GetNodes(System.String,System.String)">
+            <summary>
+            获取节点列表
+            </summary>
+            <param name="docPath">Xml文件路径</param>
+            <param name="xpath">xpath查询语句</param>
+            <returns>节点列表</returns>
+        </member>
+        <member name="M:Brilliant.Utility.XmlHelper.GetNodes(System.String,System.String,System.String)">
+            <summary>
+            获取节点列表
+            </summary>
+            <param name="docPath">Xml文件路径</param>
+            <param name="xpath">xpath查询语句</param>
+            <param name="xmlNamespace">Xml引用空间（为空使用默认引用空间）</param>
+            <returns>节点列表</returns>
+        </member>
+        <member name="M:Brilliant.Utility.XmlHelper.GetNodeValue(System.String,System.String,System.String)">
+            <summary>
+            获取节点值/节点属性值
+            </summary>
+            <param name="docPath">Xml文件路径</param>
+            <param name="xpath">xpath查询语句</param>
+            <param name="attribute">节点属性（为空返回节点值，否则返回节点属性值）</param>
+            <returns>节点值/节点属性值</returns>
+        </member>
+        <member name="M:Brilliant.Utility.XmlHelper.GetNodeValue(System.String,System.String,System.String,System.String)">
+            <summary>
+            获取节点值/节点属性值
+            </summary>
+            <param name="docPath">Xml文件路径</param>
+            <param name="xpath">xpath查询语句</param>
+            <param name="attribute">节点属性（为空返回节点值，否则返回节点属性值）</param>
+            <param name="xmlNamespace">Xml引用空间（为空使用默认引用空间）</param>
+            <returns>节点值/节点属性值</returns>
+        </member>
+        <member name="M:Brilliant.Utility.XmlHelper.GetNodesValue(System.String,System.String,System.String)">
+            <summary>
+            获取节点值列表/节点属性列表
+            </summary>
+            <param name="docPath">Xml文件路径</param>
+            <param name="xpath">xpath查询语句</param>
+            <param name="attribute">节点属性（为空返回节点值，否则返回节点属性值）</param>
+            <returns>节点值/节点属性值列表</returns>
+        </member>
+        <member name="M:Brilliant.Utility.XmlHelper.GetNodesValue(System.String,System.String,System.String,System.String)">
+            <summary>
+            获取节点值列表/节点属性列表
+            </summary>
+            <param name="docPath">Xml文件路径</param>
+            <param name="xpath">xpath查询语句</param>
+            <param name="attribute">节点属性（为空返回节点值，否则返回节点属性值）</param>
+            <param name="xmlNamespace">Xml引用空间（为空使用默认引用空间）</param>
+            <returns>节点值/节点属性值列表</returns>
+        </member>
+        <member name="M:Brilliant.Utility.XmlHelper.SetNodeValue(System.String,System.String,System.String,System.String)">
+            <summary>
+            设置节点的属性
+            </summary>
+            <param name="docPath">Xml文件路径</param>
+            <param name="xpath">xpath查询语句</param>
+            <param name="attribute">属性名</param>
+            <param name="value">属性值</param>
+        </member>
+        <member name="M:Brilliant.Utility.XmlHelper.SetNodeValue(System.String,System.String,System.String,System.String,System.String)">
+            <summary>
+            设置节点的属性
+            </summary>
+            <param name="docPath">Xml文件路径</param>
+            <param name="xpath">xpath查询语句</param>
+            <param name="attribute">属性名</param>
+            <param name="value">属性值</param>
+            <param name="xmlNamespace">Xml引用空间（为空使用默认引用空间）</param>
+        </member>
+        <member name="P:Brilliant.Utility.XmlHelper.Prefix">
+            <summary>
+            命名空间前缀
+            </summary>
+        </member>
+        <member name="P:Brilliant.Utility.XmlHelper.XmlNamespace">
+            <summary>
+            命名空间
+            </summary>
+        </member>
+        <member name="T:Brilliant.Utility.FileHelper">
+            <summary>
+            文件操作工具类
+            </summary>
+        </member>
+        <member name="M:Brilliant.Utility.FileHelper.DeleteDir(System.String)">
+            <summary>
+            删除指定目录下的所有文件及文件夹(保留目录)
+            </summary>
+            <param name="strPath">文件夹路径</param>
+            <returns>true:删除成功 false:删除失败</returns>
+        </member>
+        <member name="M:Brilliant.Utility.FileHelper.GetFileNamePhy(System.String)">
+            <summary>
+            从文件物理路径中获取文件名
+            </summary>
+            <param name="filePhyPath">文件物理路径 如：D:\MyDoc\Test.doc</param>
+            <returns>文件名 如：Test.doc</returns>
+        </member>
+        <member name="M:Brilliant.Utility.FileHelper.GetFileNameVirtual(System.String)">
+            <summary>
+            从文件虚拟路径中获取文件名
+            </summary>
+            <param name="fileVirtualPath">文件虚拟路径 如：~/MyDoc/Test.doc</param>
+            <returns>文件名</returns>
+        </member>
+        <member name="M:Brilliant.Utility.FileHelper.GetFileExtension(System.String)">
+            <summary>
+            获取文件扩展名
+            </summary>
+            <param name="fileName">文件名 如：MyDoc.doc</param>
+            <returns>文件扩展名 如：doc</returns>
+        </member>
+        <member name="M:Brilliant.Utility.FileHelper.RemoveFileExtension(System.String)">
+            <summary>
+            去除文件扩展名
+            </summary>
+            <param name="fileName">文件名 如：MyDoc.doc</param>
+            <returns>文件名 如：MyDoc</returns>
+        </member>
+        <member name="M:Brilliant.Utility.FileHelper.IsImage(System.String)">
+            <summary>
+            判断该文件是否是图片
+            </summary>
+            <param name="fileName">文件名</param>
+            <returns>true:是图片 false:不是图片</returns>
+        </member>
+    </members>
+</doc>

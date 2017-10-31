@@ -1,0 +1,5 @@
+E:\projects\BrilliantSDK\branch\ORM\Brilliant.ORM\bin\Debug\Brilliant.ORM.XML
+E:\projects\BrilliantSDK\branch\ORM\Brilliant.ORM\bin\Debug\Brilliant.ORM.dll
+E:\projects\BrilliantSDK\branch\ORM\Brilliant.ORM\bin\Debug\Brilliant.ORM.pdb
+E:\projects\BrilliantSDK\branch\ORM\Brilliant.ORM\obj\Debug\Brilliant.ORM.dll
+E:\projects\BrilliantSDK\branch\ORM\Brilliant.ORM\obj\Debug\Brilliant.ORM.pdb

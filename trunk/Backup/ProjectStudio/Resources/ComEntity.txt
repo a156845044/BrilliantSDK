@@ -1,0 +1,63 @@
+<#@ template language="c#" HostSpecific="True" #>
+<#@ output extension= ".cs" #>
+<#
+	SchemaHost host = Host as SchemaHost;
+	StringBuilder sb = new StringBuilder();
+	foreach(SchemaColumn field in host.Table.ColumnList)
+	{
+		sb.AppendFormat(" \"{0}\",", field.ColumnName);
+	}
+#>
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+
+using Brilliant.ORM;
+
+namespace <#= host.Table.TableNameSpace #>.Entity
+{
+    /// <summary>
+    /// 实体映射：<#= host.Table.TableDesc #>
+    /// </summary>
+    public class <#= host.Table.TableName #>Entity : EntityBase
+    {
+        /// <summary>
+        /// 构造函数
+        /// </summary>
+        public <#= host.Table.TableName #>Entity()
+        {
+<# if (host.Table.FKList.Count > 0){ foreach (SchemaColumn fkField in host.Table.FKList){#>
+            this.<#= fkField.FkTableName #>Model = new <#= fkField.FkTableName #>Entity(this);
+<# }}#> 
+        }
+
+        /// <summary>
+        /// 构造函数
+        /// </summary>
+        /// <param name="fkObject">外键实体对象</param>
+        public <#= host.Table.TableName #>Entity(EntityBase fkObject)
+            : base(fkObject)
+        {
+        }
+
+<#foreach (SchemaColumn field in host.Table.ColumnList){#>
+        /// <summary>
+        /// <#= field.ColumnDesc #>
+        /// </summary>
+        public <#= field.CSharpType #> <#= field.ColumnName #>
+        {
+            get { return GetProperty<<#= field.CSharpType #>>("<#= field.ColumnName #>"); }
+			set { SetProperty("<#= field.ColumnName #>", value); }
+        }
+
+<#}#>
+<# if (host.Table.FKList.Count > 0){ foreach (SchemaColumn fkField in host.Table.FKList){#>
+        /// <summary>
+        /// 外键表实体
+        /// </summary>
+        public <#= fkField.FkTableName #>Entity <#= fkField.FkTableName #>Model { get; set; }
+            
+<# }}#>
+    }
+}

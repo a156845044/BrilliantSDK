@@ -1,0 +1,315 @@
+﻿<#@ template language="c#" HostSpecific="True" #>
+<#@ output extension= ".cs" #>
+<#
+	SchemaHost host = Host as SchemaHost;
+	int i = 0;
+	StringBuilder sbFields = new StringBuilder();
+	StringBuilder sbParams = new StringBuilder();
+	StringBuilder sbUpdParam = new StringBuilder();
+
+	StringBuilder sbFieldFmt = new StringBuilder();
+	StringBuilder sbFieldFmtParam = new StringBuilder();
+	StringBuilder sbUpdFmt = new StringBuilder();
+	StringBuilder sbUpdFmtParam = new StringBuilder();
+	StringBuilder sbSelect = new StringBuilder();
+	foreach (SchemaColumn field in host.Table.ColumnList)
+	{
+		if (field.IsPK && field.IsIdentity){ continue; }
+		else
+		{
+			sbFields.AppendFormat("{0},",field.ColumnName);
+			sbParams.Append("?,");
+			sbFieldFmt.Append(field.CSharpType == "int" ? String.Format("{{{0}}},", i) : String.Format("'{{{0}}}',", i));
+			sbFieldFmtParam.AppendFormat(" entity.{0},",field.ColumnName);
+			if(!field.IsFK)
+			{
+			    sbSelect.AppendFormat("{0}.{1},", host.Table.TableName, field.ColumnName);
+			}
+		}
+		if(!field.IsPK)
+		{
+			sbUpdParam.AppendFormat("{0}=?,",field.ColumnName);
+			sbUpdFmt.Append(field.CSharpType == "int" ? String.Format("{0}={{{1}}},",field.ColumnName,i) : String.Format("{0}='{{{1}}}',",field.ColumnName,i));
+			sbUpdFmtParam.AppendFormat(" entity.{0},",field.ColumnName);
+		}
+		i++;
+	}
+	StringBuilder sbSelectFK = new StringBuilder();
+	foreach (SchemaColumn fkField in host.Table.FKList) 
+	{
+	    sbSelectFK.AppendFormat("{0}.*,",fkField.FkTableName);
+	}
+	string strUpdFmt=String.Format("{0}{1}",sbUpdFmt.ToString().TrimEnd(','),host.Table.PK.CSharpType == "int" ? String.Format(" WHERE {0}={{{1}}}",host.Table.PK.ColumnName,i) : String.Format(" WHERE {0}='{{{1}}}'",host.Table.PK.ColumnName,i));
+	sbUpdFmtParam.AppendFormat(" entity.{0}",host.Table.PK.ColumnName);
+#>
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Data;
+
+using Brilliant.ORM;
+using <#= host.Table.TableNameSpace #>.Entity;
+
+namespace <#= host.Table.TableNameSpace #>.BLL
+{
+    /// <summary>
+    /// <#= host.Table.TableDesc#>业务逻辑
+    /// </summary>
+    public abstract class <#= host.Table.TableName #>BizBase
+    {
+        /// <summary>
+        /// 根据主键判断该记录是否存在
+        /// </summary>
+        /// <param name="<#= host.Table.PK.ColumnNameLower #>"><#= host.Table.PK.ColumnDesc #></param>
+        /// <returns>true：存在，false：不存在</returns>
+        public virtual bool Exists(<#= host.Table.PK.CSharpType #> <#= host.Table.PK.ColumnNameLower #>)
+        {
+            SQL sql = SQL.Build("SELECT COUNT(*) FROM <#= host.Table.TableName #> WHERE <#= host.Table.PK.ColumnName #>=?", <#= host.Table.PK.ColumnNameLower #>);
+            return Convert.ToInt32(SqlMap<<#= host.Table.TableName #>Entity>.ParseSql(sql).First()) > 0;
+        }
+
+        /// <summary>
+        /// 添加一条记录
+        /// </summary>
+        /// <param name="entity">待添加的实体对象</param>
+        /// <returns>true:添加成功 false:添加失败</returns>
+        public virtual bool Add(<#= host.Table.TableName #>Entity entity)
+        {
+            SQL sql = SQL.Build("INSERT INTO <#= host.Table.TableName #>(<#=sbFields.ToString().TrimEnd(',') #>) VALUES(<#=sbParams.ToString().TrimEnd(',')#>)", <#=sbFieldFmtParam.ToString().TrimEnd(',')#>);
+            return SqlMap<<#= host.Table.TableName #>Entity>.ParseSql(sql).Execute() > 0;
+        }
+
+        /// <summary>
+        /// 添加一条记录
+        /// </summary>
+        /// <param name="entity">待添加的实体对象</param>
+        /// <returns>true:添加成功 false:添加失败</returns>
+        public bool Add(<#= host.Table.TableName #>Entity entity, IDataProvider provider)
+        {
+            SQL sql = SQL.Build("INSERT INTO <#= host.Table.TableName #>(<#=sbFields.ToString().TrimEnd(',') #>) VALUES(<#=sbParams.ToString().TrimEnd(',')#>)", <#=sbFieldFmtParam.ToString().TrimEnd(',')#>);
+            return SqlMap<<#= host.Table.TableName #>Entity>.ParseSql(sql).Execute(provider) > 0;
+        }
+
+        /// <summary>
+        /// 批量添加记录
+        /// </summary>
+        /// <param name="list">待添加的实体对象列表</param>
+        /// <returns>true:添加成功 false:添加失败</returns>
+        public virtual bool Add(List<<#= host.Table.TableName #>Entity> list)
+        {
+            List<SQL> sqlList = new List<SQL>();
+            foreach (<#= host.Table.TableName #>Entity entity in list)
+            {
+                SQL sql = SQL.Build("INSERT INTO <#= host.Table.TableName #>(<#=sbFields.ToString().TrimEnd(',') #>) VALUES(<#=sbParams.ToString().TrimEnd(',')#>)", <#=sbFieldFmtParam.ToString().TrimEnd(',')#>);
+                sqlList.Add(sql);
+            }
+            return SqlMap<<#= host.Table.TableName #>Entity>.ParseSql(sqlList).Execute() > 0;
+        }
+
+        /// <summary>
+        /// 批量添加记录
+        /// </summary>
+        /// <param name="list">待添加的实体对象列表</param>
+        /// <returns>true:添加成功 false:添加失败</returns>
+        public bool Add(List<<#= host.Table.TableName #>Entity> list, IDataProvider provider)
+        {
+            List<SQL> sqlList = new List<SQL>();
+            foreach (<#= host.Table.TableName #>Entity entity in list)
+            {
+                SQL sql = SQL.Build("INSERT INTO <#= host.Table.TableName #>(<#=sbFields.ToString().TrimEnd(',') #>) VALUES(<#=sbParams.ToString().TrimEnd(',')#>)", <#=sbFieldFmtParam.ToString().TrimEnd(',')#>);
+                sqlList.Add(sql);
+            }
+            return SqlMap<<#= host.Table.TableName #>Entity>.ParseSql(sqlList).Execute(provider) > 0;
+        }
+
+        /// <summary>
+        /// 更新一条记录
+        /// </summary>
+        /// <param name="entity">待更新的实体对象</param>
+        /// <returns>true:更新成功 false:更新失败</returns>
+        public virtual bool Update(<#= host.Table.TableName #>Entity entity)
+        {
+            SQL sql = SQL.Build("UPDATE <#= host.Table.TableName #> SET <#= sbUpdParam.ToString().TrimEnd(',') #> WHERE <#= host.Table.PK.ColumnName #>=?", <#=sbUpdFmtParam.ToString()#>);
+            return SqlMap<<#= host.Table.TableName #>Entity>.ParseSql(sql).Execute() > 0;
+        }
+
+        /// <summary>
+        /// 更新一条记录
+        /// </summary>
+        /// <param name="entity">待更新的实体对象</param>
+        /// <returns>true:更新成功 false:更新失败</returns>
+        public bool Update(<#= host.Table.TableName #>Entity entity, IDataProvider provider)
+        {
+            SQL sql = SQL.Build("UPDATE <#= host.Table.TableName #> SET <#= sbUpdParam.ToString().TrimEnd(',') #> WHERE <#= host.Table.PK.ColumnName #>=?", <#=sbUpdFmtParam.ToString()#>);
+            return SqlMap<<#= host.Table.TableName #>Entity>.ParseSql(sql).Execute(provider) > 0;
+        }
+
+        /// <summary>
+        /// 批量更新记录
+        /// </summary>
+        /// <param name="list">待更新的实体对象列表</param>
+        /// <returns>true:更新成功 false:更新失败</returns>
+        public virtual bool Update(List<<#= host.Table.TableName #>Entity> list)
+        {
+            List<SQL> sqlList = new List<SQL>();
+            foreach (<#= host.Table.TableName #>Entity entity in list)
+            {
+                SQL sql = SQL.Build("UPDATE <#= host.Table.TableName #> SET <#= sbUpdParam.ToString().TrimEnd(',') #> WHERE <#= host.Table.PK.ColumnName #>=?", <#=sbUpdFmtParam.ToString()#>);
+                sqlList.Add(sql);
+            }
+            return SqlMap<<#= host.Table.TableName #>Entity>.ParseSql(sqlList).Execute() > 0;
+        }
+
+        /// <summary>
+        /// 批量更新记录
+        /// </summary>
+        /// <param name="list">待更新的实体对象列表</param>
+        /// <returns>true:更新成功 false:更新失败</returns>
+        public bool Update(List<<#= host.Table.TableName #>Entity> list, IDataProvider provider)
+        {
+            List<SQL> sqlList = new List<SQL>();
+            foreach (<#= host.Table.TableName #>Entity entity in list)
+            {
+                SQL sql = SQL.Build("UPDATE <#= host.Table.TableName #> SET <#= sbUpdParam.ToString().TrimEnd(',') #> WHERE <#= host.Table.PK.ColumnName #>=?", <#=sbUpdFmtParam.ToString()#>);
+                sqlList.Add(sql);
+            }
+            return SqlMap<<#= host.Table.TableName #>Entity>.ParseSql(sqlList).Execute(provider) > 0;
+        }
+
+        /// <summary>
+        /// 删除一条记录
+        /// </summary>
+        /// <param name="<#= host.Table.PK.ColumnNameLower #>"><#= host.Table.PK.ColumnDesc #></param>
+        /// <returns>true:删除成功 false:删除失败</returns>
+        public virtual bool Delete(<#= host.Table.PK.CSharpType #> <#= host.Table.PK.ColumnNameLower #>)
+        {
+            SQL sql = SQL.Build("DELETE FROM <#= host.Table.TableName #> WHERE <#= host.Table.PK.ColumnName #>=?", <#= host.Table.PK.ColumnNameLower #>);
+            return SqlMap<<#= host.Table.TableName #>Entity>.ParseSql(sql).Execute() > 0;
+        }
+
+        /// <summary>
+        /// 删除一条记录
+        /// </summary>
+        /// <param name="<#= host.Table.PK.ColumnNameLower #>"><#= host.Table.PK.ColumnDesc #></param>
+        /// <returns>true:删除成功 false:删除失败</returns>
+        public bool Delete(<#= host.Table.PK.CSharpType #> <#= host.Table.PK.ColumnNameLower #>, IDataProvider provider)
+        {
+            SQL sql = SQL.Build("DELETE FROM <#= host.Table.TableName #> WHERE <#= host.Table.PK.ColumnName #>=?", <#= host.Table.PK.ColumnNameLower #>);
+            return SqlMap<<#= host.Table.TableName #>Entity>.ParseSql(sql).Execute(provider) > 0;
+        }
+
+        /// <summary>
+        /// 删除一条记录
+        /// </summary>
+        /// <param name="entity">待删除的实体对象</param>
+        /// <returns>true:删除成功 false:删除失败</returns>
+        public virtual bool Delete(<#= host.Table.TableName #>Entity entity)
+        {
+            SQL sql = SQL.Build("DELETE FROM <#= host.Table.TableName #> WHERE <#= host.Table.PK.ColumnName #>=?", entity.<#= host.Table.PK.ColumnName #>);
+            return SqlMap<<#= host.Table.TableName #>Entity>.ParseSql(sql).Execute() > 0;
+        }
+
+        /// <summary>
+        /// 批量删除记录
+        /// </summary>
+        /// <param name="list">待删除的实体对象列表</param>
+        /// <returns>true:删除成功 false:删除失败</returns>
+        public virtual bool Delete(List<<#= host.Table.TableName #>Entity> list)
+        {
+            List<SQL> sqlList = new List<SQL>();
+            foreach (<#= host.Table.TableName #>Entity entity in list)
+            {
+                SQL sql = SQL.Build("DELETE FROM <#= host.Table.TableName #> WHERE <#= host.Table.PK.ColumnName #>=?", entity.<#= host.Table.PK.ColumnName #>);
+                sqlList.Add(sql);
+            }
+            return SqlMap<<#= host.Table.TableName #>Entity>.ParseSql(sqlList).Execute() > 0;
+        }
+
+        /// <summary>
+        /// 批量删除记录
+        /// </summary>
+        /// <param name="list">待删除的实体对象列表</param>
+        /// <returns>true:删除成功 false:删除失败</returns>
+        public bool Delete(List<<#= host.Table.TableName #>Entity> list, IDataProvider provider)
+        {
+            List<SQL> sqlList = new List<SQL>();
+            foreach (<#= host.Table.TableName #>Entity entity in list)
+            {
+                SQL sql = SQL.Build("DELETE FROM <#= host.Table.TableName #> WHERE <#= host.Table.PK.ColumnName #>=?", entity.<#= host.Table.PK.ColumnName #>);
+                sqlList.Add(sql);
+            }
+            return SqlMap<<#= host.Table.TableName #>Entity>.ParseSql(sqlList).Execute(provider) > 0;
+        }
+
+        /// <summary>
+        /// 根据主键获取实体对象
+        /// </summary>
+        /// <param name="<#= host.Table.PK.ColumnNameLower #>"><#= host.Table.PK.ColumnDesc #></param>
+        /// <returns>实体对象</returns>
+        public virtual <#= host.Table.TableName #>Entity GetModel(<#= host.Table.PK.CSharpType #> <#= host.Table.PK.ColumnNameLower #>)
+        {
+            SQL sql = SQL.Build("SELECT * FROM <#= host.Table.TableName #> WHERE <#= host.Table.PK.ColumnName #>=?", <#= host.Table.PK.ColumnNameLower #>);
+            return SqlMap<<#= host.Table.TableName #>Entity>.ParseSql(sql).ToObject();
+        }
+  
+        /// <summary>
+        /// 根据主键获取Json对象
+        /// </summary>
+        /// <param name="<#= host.Table.PK.ColumnNameLower #>"><#= host.Table.PK.ColumnDesc #></param>
+        /// <returns>Json对象</returns>
+        public virtual string GetJsonModel(<#= host.Table.PK.CSharpType #> <#= host.Table.PK.ColumnNameLower #>)
+        {
+            SQL sql = SQL.Build("SELECT * FROM <#= host.Table.TableName #> WHERE <#= host.Table.PK.ColumnName #>=?", <#= host.Table.PK.ColumnNameLower #>);
+            return SqlMap<<#= host.Table.TableName #>Entity>.ParseSql(sql).ToJsonObject();
+        }
+
+        /// <summary>
+        /// 获取对象列表
+        /// </summary>
+        /// <returns>对象列表</returns>
+        public virtual List<<#= host.Table.TableName #>Entity> GetList()
+        {
+            SQL sql = SQL.Build("SELECT * FROM <#= host.Table.TableName #>");
+            return SqlMap<<#= host.Table.TableName #>Entity>.ParseSql(sql).ToList();
+        }
+        
+        /// <summary>
+        /// 获取Json对象列表
+        /// </summary>
+        /// <returns>Json对象列表</returns>
+        public virtual string GetJsonList()
+        {
+            SQL sql = SQL.Build("SELECT * FROM <#= host.Table.TableName #>");
+            return SqlMap<<#= host.Table.TableName #>Entity>.ParseSql(sql).ToJsonList();
+        }
+
+        /// <summary>
+        /// 获取分页后对象列表
+        /// </summary>
+        /// <param name="pageSize">每页显示的记录条数</param>
+        /// <param name="pageNumber">当前页索引</param>
+        /// <param name="recordCount">总记录条数</param>
+        /// <returns>分页后对象列表</returns>
+        public virtual List<<#= host.Table.TableName #>Entity> GetList(int pageSize, int pageNumber, out int recordCount)
+        {
+            SQL sql = SQL.Build("SELECT * FROM <#= host.Table.TableName #>").Limit(pageSize, pageNumber);
+            recordCount = sql.RecordCount;
+            return SqlMap<<#= host.Table.TableName #>Entity>.ParseSql(sql).ToList();
+        }
+
+        /// <summary>
+        /// 获取分页后Json对象列表
+        /// </summary>
+        /// <param name="pageSize">每页显示的记录条数</param>
+        /// <param name="pageNumber">当前页索引</param>
+        /// <param name="recordCount">总记录条数</param>
+        /// <returns>页后Json对象列表</returns>
+        public virtual string GetJsonList(int pageSize, int pageNumber, out int recordCount)
+        {
+            SQL sql = SQL.Build("SELECT * FROM <#= host.Table.TableName #>").Limit(pageSize, pageNumber);
+            recordCount = sql.RecordCount;
+            return SqlMap<<#= host.Table.TableName #>Entity>.ParseSql(sql).ToJsonList();
+        }
+    }
+}

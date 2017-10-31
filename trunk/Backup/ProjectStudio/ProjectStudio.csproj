@@ -1,0 +1,321 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003" ToolsVersion="4.0">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{A7D92A0A-0F18-441A-9EE3-457A9BCCF588}</ProjectGuid>
+    <ProjectTypeGuids>{82b43b9b-a64c-4715-b499-d71e9ca2bd60};{60dc8134-eba5-43b8-bcc9-bb4bc16c2548};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>Brilliant.ProjectStudio</RootNamespace>
+    <AssemblyName>ProjectStudio</AssemblyName>
+    <SignAssembly>True</SignAssembly>
+    <AssemblyOriginatorKeyFile>Key.snk</AssemblyOriginatorKeyFile>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <RunCodeAnalysis>true</RunCodeAnalysis>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="Microsoft.Office.Interop.Word, Version=14.0.0.0, Culture=neutral, PublicKeyToken=71e9bce111e9429c, processorArchitecture=MSIL">
+      <EmbedInteropTypes>False</EmbedInteropTypes>
+    </Reference>
+    <Reference Include="Microsoft.VisualStudio.OLE.Interop" />
+    <Reference Include="Microsoft.VisualStudio.Shell.Interop" />
+    <Reference Include="Microsoft.VisualStudio.Shell.Interop.8.0" />
+    <Reference Include="Microsoft.VisualStudio.Shell.Interop.9.0" />
+    <Reference Include="Microsoft.VisualStudio.Shell.Interop.10.0" />
+    <Reference Include="Microsoft.VisualStudio.TextManager.Interop" />
+    <Reference Include="Microsoft.VisualStudio.Shell.10.0">
+      <Private>false</Private>
+    </Reference>
+    <Reference Include="Microsoft.VisualStudio.Shell.Immutable.10.0" />
+    <Reference Include="Microsoft.VisualStudio.TextTemplating.10.0, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL" />
+    <Reference Include="Microsoft.VisualStudio.TextTemplating.Interfaces.10.0, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL" />
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Design" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Web.Extensions" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <COMReference Include="EnvDTE">
+      <Guid>{80CC9F66-E7D8-4DDD-85B6-D9E6CD0E93E2}</Guid>
+      <VersionMajor>8</VersionMajor>
+      <VersionMinor>0</VersionMinor>
+      <Lcid>0</Lcid>
+      <WrapperTool>primary</WrapperTool>
+      <Isolated>False</Isolated>
+      <EmbedInteropTypes>False</EmbedInteropTypes>
+    </COMReference>
+    <COMReference Include="EnvDTE100">
+      <Guid>{26AD1324-4B7C-44BC-84F8-B86AED45729F}</Guid>
+      <VersionMajor>10</VersionMajor>
+      <VersionMinor>0</VersionMinor>
+      <Lcid>0</Lcid>
+      <WrapperTool>primary</WrapperTool>
+      <Isolated>False</Isolated>
+      <EmbedInteropTypes>False</EmbedInteropTypes>
+    </COMReference>
+    <COMReference Include="EnvDTE80">
+      <Guid>{1A31287A-4D7D-413E-8E32-3B374931BD89}</Guid>
+      <VersionMajor>8</VersionMajor>
+      <VersionMinor>0</VersionMinor>
+      <Lcid>0</Lcid>
+      <WrapperTool>primary</WrapperTool>
+      <Isolated>False</Isolated>
+      <EmbedInteropTypes>False</EmbedInteropTypes>
+    </COMReference>
+    <COMReference Include="EnvDTE90">
+      <Guid>{2CE2370E-D744-4936-A090-3FFFE667B0E1}</Guid>
+      <VersionMajor>9</VersionMajor>
+      <VersionMinor>0</VersionMinor>
+      <Lcid>0</Lcid>
+      <WrapperTool>primary</WrapperTool>
+      <Isolated>False</Isolated>
+      <EmbedInteropTypes>False</EmbedInteropTypes>
+    </COMReference>
+    <COMReference Include="Microsoft.VisualStudio.CommandBars">
+      <Guid>{1CBA492E-7263-47BB-87FE-639000619B15}</Guid>
+      <VersionMajor>8</VersionMajor>
+      <VersionMinor>0</VersionMinor>
+      <Lcid>0</Lcid>
+      <WrapperTool>primary</WrapperTool>
+      <Isolated>False</Isolated>
+      <EmbedInteropTypes>False</EmbedInteropTypes>
+    </COMReference>
+    <COMReference Include="stdole">
+      <Guid>{00020430-0000-0000-C000-000000000046}</Guid>
+      <VersionMajor>2</VersionMajor>
+      <VersionMinor>0</VersionMinor>
+      <Lcid>0</Lcid>
+      <WrapperTool>primary</WrapperTool>
+      <Isolated>False</Isolated>
+      <EmbedInteropTypes>False</EmbedInteropTypes>
+    </COMReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Code\Com.cs" />
+    <Compile Include="Code\Export.cs" />
+    <Compile Include="Code\JsonSerializer.cs" />
+    <Compile Include="Code\LoginInfo.cs" />
+    <Compile Include="Code\ConfigMgr.cs" />
+    <Compile Include="Code\ProviderInfo.cs" />
+    <Compile Include="Code\TemplateInfo.cs" />
+    <Compile Include="Code\Utility.cs" />
+    <Compile Include="DiaCreateFileProgress.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="DiaCreateFileProgress.Designer.cs">
+      <DependentUpon>DiaCreateFileProgress.cs</DependentUpon>
+    </Compile>
+    <Compile Include="DiaExportSchemaProgress.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="DiaExportSchemaProgress.Designer.cs">
+      <DependentUpon>DiaExportSchemaProgress.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FrmCompare.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmCompare.Designer.cs">
+      <DependentUpon>FrmCompare.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FrmCreateFile.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmCreateFile.Designer.cs">
+      <DependentUpon>FrmCreateFile.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FrmDBLogin.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmDBLogin.Designer.cs">
+      <DependentUpon>FrmDBLogin.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FrmDBMgr.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmDBMgr.Designer.cs">
+      <DependentUpon>FrmDBMgr.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FrmExportSchema.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmExportSchema.Designer.cs">
+      <DependentUpon>FrmExportSchema.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FrmTemplateMgr.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmTemplateMgr.Designer.cs">
+      <DependentUpon>FrmTemplateMgr.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Guids.cs" />
+    <Compile Include="Code\ResManager.cs" />
+    <Compile Include="ResDescText.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ResDescText.resx</DependentUpon>
+    </Compile>
+    <Compile Include="ResImageList.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ResImageList.resx</DependentUpon>
+    </Compile>
+    <Compile Include="ResImageName.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ResImageName.resx</DependentUpon>
+    </Compile>
+    <Compile Include="Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <Compile Include="GlobalSuppressions.cs" />
+    <Compile Include="ProjectStudioPackage.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="PkgCmdID.cs" />
+    <Compile Include="ResTemplate.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ResTemplate.resx</DependentUpon>
+    </Compile>
+    <Compile Include="T4Engin\CodeGenerator.cs" />
+    <Compile Include="T4Engin\SchemaHost.cs" />
+    <Compile Include="T4Engin\TemplateHost.cs" />
+    <Compile Include="ToolWindow.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="DiaCreateFileProgress.resx">
+      <DependentUpon>DiaCreateFileProgress.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="DiaExportSchemaProgress.resx">
+      <DependentUpon>DiaExportSchemaProgress.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmCompare.resx">
+      <DependentUpon>FrmCompare.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmCreateFile.resx">
+      <DependentUpon>FrmCreateFile.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmDBLogin.resx">
+      <DependentUpon>FrmDBLogin.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmDBMgr.resx">
+      <DependentUpon>FrmDBMgr.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmExportSchema.resx">
+      <DependentUpon>FrmExportSchema.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmTemplateMgr.resx">
+      <DependentUpon>FrmTemplateMgr.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ResDescText.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>ResDescText.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ResImageList.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>ResImageList.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ResImageName.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>ResImageName.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ResTemplate.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>ResTemplate.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="VSPackage.resx">
+      <MergeWithCTO>true</MergeWithCTO>
+      <ManifestResourceName>VSPackage</ManifestResourceName>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="source.extension.vsixmanifest">
+      <SubType>Designer</SubType>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Key.snk" />
+  </ItemGroup>
+  <ItemGroup>
+    <VSCTCompile Include="ProjectStudio.vsct">
+      <ResourceName>Menus.ctmenu</ResourceName>
+      <SubType>Designer</SubType>
+    </VSCTCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Images_32bit.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Images_24bit.bmp" />
+    <None Include="Resources\dbm_disconnect.png" />
+    <None Include="Resources\dbm_connect.png" />
+    <None Include="Resources\dbl_bg.png" />
+    <None Include="Resources\dbl_line.png" />
+    <None Include="Resources\com_folder_close.png" />
+    <None Include="Resources\com_folder_open.png" />
+    <None Include="Resources\com_txt.png" />
+    <None Include="Resources\dbm_db.png" />
+    <None Include="Resources\dbm_server.png" />
+    <None Include="Resources\dbm_server_net.png" />
+    <None Include="Resources\dbm_table.png" />
+    <None Include="Resources\dbq_message.png" />
+    <None Include="Resources\dbq_result.png" />
+    <None Include="Resources\ComBLL.txt" />
+    <None Include="Resources\ComBLLExtend.txt" />
+    <None Include="Resources\ComEntity.txt" />
+    <None Include="Resources\OABLL.txt" />
+    <None Include="Resources\OABLLExtend.txt" />
+    <None Include="Resources\OAEntity.txt" />
+    <None Include="Resources\com_word.png" />
+    <Content Include="Resources\Package.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Brilliant.Data\Brilliant.Data.csproj">
+      <Project>{F70E4A84-DE64-4DBA-877C-16767C7D2515}</Project>
+      <Name>Brilliant.Data</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <PropertyGroup>
+    <UseCodebase>true</UseCodebase>
+  </PropertyGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <Import Project="$(MSBuildExtensionsPath)\Microsoft\VisualStudio\v10.0\VSSDK\Microsoft.VsSDK.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>
