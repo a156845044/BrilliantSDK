@@ -3,3 +3,9 @@ E:\projects\BrilliantSDK\branch\ORM\Brilliant.ORM\bin\Release\Brilliant.ORM.pdb
 E:\projects\BrilliantSDK\branch\ORM\Brilliant.ORM\obj\Release\Brilliant.ORM.dll
 E:\projects\BrilliantSDK\branch\ORM\Brilliant.ORM\obj\Release\Brilliant.ORM.pdb
 E:\projects\BrilliantSDK\branch\ORM\Brilliant.ORM\obj\Release\Brilliant.ORM.csprojResolveAssemblyReference.cache
+C:\Users\15684\Documents\projects\asp.net\BrilliantSDK\branch\ORM\Brilliant.ORM\bin\Release\Brilliant.ORM.dll
+C:\Users\15684\Documents\projects\asp.net\BrilliantSDK\branch\ORM\Brilliant.ORM\bin\Release\Brilliant.ORM.pdb
+C:\Users\15684\Documents\projects\asp.net\BrilliantSDK\branch\ORM\Brilliant.ORM\obj\Release\Brilliant.ORM.csprojResolveAssemblyReference.cache
+C:\Users\15684\Documents\projects\asp.net\BrilliantSDK\branch\ORM\Brilliant.ORM\obj\Release\Brilliant.ORM.csproj.CoreCompileInputs.cache
+C:\Users\15684\Documents\projects\asp.net\BrilliantSDK\branch\ORM\Brilliant.ORM\obj\Release\Brilliant.ORM.dll
+C:\Users\15684\Documents\projects\asp.net\BrilliantSDK\branch\ORM\Brilliant.ORM\obj\Release\Brilliant.ORM.pdb

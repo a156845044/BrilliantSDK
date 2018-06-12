@@ -9,3 +9,9 @@ E:\projects\code\BrilliantSDK\branch\ORM\Brilliant.ORM\bin\Debug\Brilliant.ORM.p
 E:\projects\code\BrilliantSDK\branch\ORM\Brilliant.ORM\obj\Debug\Brilliant.ORM.csproj.CoreCompileInputs.cache
 E:\projects\code\BrilliantSDK\branch\ORM\Brilliant.ORM\obj\Debug\Brilliant.ORM.dll
 E:\projects\code\BrilliantSDK\branch\ORM\Brilliant.ORM\obj\Debug\Brilliant.ORM.pdb
+C:\Users\15684\Documents\projects\asp.net\BrilliantSDK\branch\ORM\Brilliant.ORM\bin\Debug\Brilliant.ORM.XML
+C:\Users\15684\Documents\projects\asp.net\BrilliantSDK\branch\ORM\Brilliant.ORM\bin\Debug\Brilliant.ORM.dll
+C:\Users\15684\Documents\projects\asp.net\BrilliantSDK\branch\ORM\Brilliant.ORM\bin\Debug\Brilliant.ORM.pdb
+C:\Users\15684\Documents\projects\asp.net\BrilliantSDK\branch\ORM\Brilliant.ORM\obj\Debug\Brilliant.ORM.csproj.CoreCompileInputs.cache
+C:\Users\15684\Documents\projects\asp.net\BrilliantSDK\branch\ORM\Brilliant.ORM\obj\Debug\Brilliant.ORM.dll
+C:\Users\15684\Documents\projects\asp.net\BrilliantSDK\branch\ORM\Brilliant.ORM\obj\Debug\Brilliant.ORM.pdb

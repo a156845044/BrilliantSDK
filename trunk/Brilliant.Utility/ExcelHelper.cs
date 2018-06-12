@@ -37,21 +37,24 @@ namespace Brilliant.Utility
         private static string GetOleDbConnectionString(string excelFilePath)
         {
             // Office 2007 以及 以下版本使用.
-            string jetConnString = String.Format("Provider=Microsoft.Jet.OLEDB.4.0;Data Source={0};Extended Properties=Excel 8.0;", excelFilePath);
+            string jetConnString = String.Format("Provider=Microsoft.Jet.OLEDB.4.0;Data Source={0};Extended Properties='Excel 8.0; HDR=Yes; IMEX=1'", excelFilePath);
 
             // xlsx 扩展名 使用.
-            string aceConnXlsxString = String.Format("Provider=Microsoft.ACE.OLEDB.12.0;Data Source={0};Extended Properties=\"Excel 12.0 Xml;HDR=YES\"", excelFilePath);
+            string aceConnXlsxString = String.Format("Provider=Microsoft.Ace.OLEDB.12.0;Data Source={0};Extended Properties='Excel 12.0; HDR=Yes; IMEX=1'", excelFilePath);
 
-            // xls 扩展名 使用.
-            string aceConnXlsString = String.Format("Provider=Microsoft.ACE.OLEDB.12.0;Data Source={0};Extended Properties=\"Excel 8.0;HDR=YES\"", excelFilePath);
+ 
 
             // 默认非 xlsx
-            string aceConnString = aceConnXlsString;
+            string aceConnString = aceConnXlsxString;
             if (excelFilePath.EndsWith(".xlsx", StringComparison.CurrentCultureIgnoreCase))
             {
                 // 如果扩展名为 xlsx.
                 // 那么需要将 驱动切换为 xlsx 扩展名 的.
                 aceConnString = aceConnXlsxString;
+            }
+            else
+            {
+                aceConnString = jetConnString;
             }
             // 尝试使用 ACE. 假如不发生错误的话，使用 ACE 驱动.
             try
